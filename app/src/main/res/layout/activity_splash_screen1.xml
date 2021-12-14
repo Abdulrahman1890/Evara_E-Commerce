@@ -13,12 +13,11 @@
         android:id="@+id/sp1_evara"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/evara"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
         android:paddingBottom="150dp"
-        >
-    </ImageView>
+        android:src="@drawable/evara"
+
+        ></ImageView>
 
 
 </RelativeLayout>

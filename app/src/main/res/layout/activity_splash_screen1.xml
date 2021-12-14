@@ -17,7 +17,7 @@
         android:paddingBottom="150dp"
         android:src="@drawable/evara"
 
-        ></ImageView>
+        />
 
 
 </RelativeLayout>

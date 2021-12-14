@@ -14,9 +14,17 @@ import androidx.viewpager.widget.PagerAdapter;
 public class SliderAdapter extends PagerAdapter {
     Context context;
     LayoutInflater layoutInflater;
-    int[] images = {};
-    String[] headers = {};
-    String[] bodies = {};
+    int[] images = {
+            R.drawable.moto,R.drawable.cart,R.drawable.support
+    };
+    String[] headers = {
+            "Buy Everything Easily" , "Save Your Money" , "Technical Support"
+    };
+    String[] bodies = {
+            "Get everything you need easily through a simple and pleasant interface that will help you" ,
+            "Save your money with continuous offers and discounts on all products" ,
+            "Continuous technical support around the clock,  thus achieving the first item in credibility and integrity"
+    };
 
     public SliderAdapter(Context context){
         this.context = context;

@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="40dp"
     android:orientation="vertical">
 
     <ImageView
         android:id="@+id/page_img"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:src=""
-        app:srcCompat="@drawable/evara" />
+        android:src="@drawable/moto"
+
+        />
 
     <TextView
         android:id="@+id/page_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="TextView" />
+        android:layout_below="@id/page_img"
+        android:layout_marginVertical="40dp"
+        android:fontFamily="@font/aladin"
+        android:gravity="center_horizontal"
+        android:text="Buy Everything Easily"
+        android:textColor="#000000"
+        android:textSize="40sp" />
 
     <TextView
         android:id="@+id/page_body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_below="@id/page_head"
+        android:fontFamily="sans-serif-medium"
         android:gravity="center"
-        android:text="TextView" />
-</LinearLayout>
+        android:text="Get everything you need easily through a simple and pleasant interface that will help you"
+        android:textColor="#C8000000"
+        android:textSize="22sp" />
+</RelativeLayout>

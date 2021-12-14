@@ -6,16 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".SplashScreen2">
 
-    <androidx.viewpager2.widget.ViewPager2
+    <ImageView
+        android:id="@+id/sp2_shagar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/shagar"
+        android:scaleType="centerCrop"
+        />
+
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/sp2_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_below="@id/sp2_shagar"
+        >
 
-    </androidx.viewpager2.widget.ViewPager2>
+    </androidx.viewpager.widget.ViewPager>
 
     <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/sp2_viewpager"></LinearLayout>
+
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/sp2_viewpager"/>
 </RelativeLayout>

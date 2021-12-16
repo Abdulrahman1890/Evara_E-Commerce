@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -32,6 +33,27 @@ public class SplashScreen2 extends AppCompatActivity {
         sliderAdapter = new SliderAdapter(getApplicationContext());
         viewPager.setAdapter(sliderAdapter);
         viewPager.addOnPageChangeListener(viewListener);
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(currentPosition == dots.length - 1){
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                else
+                    viewPager.setCurrentItem(currentPosition + 1);
+            }
+        });
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         addThreeDots(0);
     }
     public void  addThreeDots(int position){
@@ -41,7 +63,7 @@ public class SplashScreen2 extends AppCompatActivity {
             dots[i] = new TextView(this);
             dots[i].setText(Html.fromHtml("&#8226;"));
             dots[i].setTextSize(35);
-            dots[i].setTextColor(getResources().getColor(android.R.color.darker_gray));
+            dots[i].setTextColor(getResources().getColor(R.color.LightGray));
 
             dotLayout.addView(dots[i]);
         }
@@ -59,8 +81,10 @@ public class SplashScreen2 extends AppCompatActivity {
             addThreeDots(position);
             currentPosition = position;
 
-            if(currentPosition == dots.length){
-                next.setText("FINISH");
+            if(currentPosition == dots.length - 1){
+                next.setText("finish");
+            }else{
+                next.setText("next");
             }
         }
 

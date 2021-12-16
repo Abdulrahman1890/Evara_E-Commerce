@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="40dp"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <ImageView
@@ -22,10 +23,11 @@
         android:layout_below="@id/page_img"
         android:layout_marginVertical="40dp"
         android:fontFamily="@font/aladin"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:text="Buy Everything Easily"
         android:textColor="#000000"
-        android:textSize="40sp" />
+        android:textSize="30sp"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/page_body"
@@ -33,8 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/page_head"
         android:fontFamily="sans-serif-medium"
-        android:gravity="center"
         android:text="Get everything you need easily through a simple and pleasant interface that will help you"
         android:textColor="#C8000000"
-        android:textSize="22sp" />
+        android:gravity="center"
+        android:textSize="20sp" />
 </RelativeLayout>

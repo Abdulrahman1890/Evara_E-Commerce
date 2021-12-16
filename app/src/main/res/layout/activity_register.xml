@@ -11,16 +11,15 @@
         android:id="@+id/regist_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/green_button"
+        android:padding="16dp"
         android:text="Register"
         android:textColor="@drawable/button_text_color"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="30dp"
-        android:layout_marginEnd="30dp"
-        android:textSize="20sp"
-        android:padding="10dp"
-        />
+        android:textSize="20sp" />
 
 
     <LinearLayout
@@ -30,7 +29,13 @@
         android:layout_above="@id/regist_btn"
         android:orientation="vertical"
         >
-
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Register"
+        android:textColor="@color/Green"
+        android:layout_marginBottom="30dp"
+        android:textSize="48sp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,15 +48,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/edittext_design"
-        android:hint="vasugdbisudb"
-        android:layout_marginVertical="8dp"
+        android:hint="Enter Your Username"
+        android:layout_marginVertical="10dp"
         android:padding="16dp"
         />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Username"
+            android:text="Email"
             android:textSize="23sp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -60,15 +65,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_design"
-            android:hint="vasugdbisudb"
-            android:layout_marginVertical="8dp"
+            android:hint="Enter Your Email"
+            android:layout_marginVertical="10dp"
             android:padding="16dp"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Username"
+            android:text="Password"
             android:textSize="23sp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -77,15 +82,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_design"
-            android:hint="vasugdbisudb"
-            android:layout_marginVertical="8dp"
+            android:hint="Enter Your Password"
+            android:layout_marginVertical="10dp"
             android:padding="16dp"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Username"
+            android:text="Confirm Password"
             android:textSize="23sp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -94,8 +99,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_design"
-            android:hint="vasugdbisudb"
-            android:layout_marginVertical="8dp"
+            android:hint="Enter Your Password again"
+            android:layout_marginVertical="10dp"
             android:padding="16dp"
             />
 

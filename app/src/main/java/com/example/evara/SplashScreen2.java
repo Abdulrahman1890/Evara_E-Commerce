@@ -38,7 +38,7 @@ public class SplashScreen2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(currentPosition == dots.length - 1){
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    Intent intent = new Intent(getApplicationContext(),Register.class);
                     startActivity(intent);
                     finish();
                 }
@@ -49,7 +49,7 @@ public class SplashScreen2 extends AppCompatActivity {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(),Register.class);
                 startActivity(intent);
                 finish();
             }

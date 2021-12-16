@@ -19,18 +19,43 @@
         android:id="@+id/sp2_viewpager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-165dp"
         android:layout_below="@id/sp2_shagar"
-        >
+        android:layout_marginTop="-165dp">
+
 
     </androidx.viewpager.widget.ViewPager>
-
+    <LinearLayout
+        android:id="@+id/sp2_dot_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_above="@id/linear"></LinearLayout>
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-
+        android:padding="24dp"
         android:layout_alignParentBottom="true"
-        android:layout_below="@id/sp2_viewpager"/>
+        >
+
+        <Button
+            android:id="@+id/sp2_skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:text="@string/skip"
+            android:textColor="@color/Gray" />
+
+        <Button
+            android:id="@+id/sp2_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/green_button"
+            android:textColor="@drawable/button_text_color"
+            android:text="@string/next" />
+    </LinearLayout>
 </RelativeLayout>

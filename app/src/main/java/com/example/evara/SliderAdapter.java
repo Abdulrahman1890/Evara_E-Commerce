@@ -44,6 +44,7 @@ public class SliderAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.page,container,false);
+
         ImageView img = view.findViewById(R.id.page_img);
         TextView head = view.findViewById(R.id.page_head);
         TextView body = view.findViewById(R.id.page_body);
@@ -58,7 +59,6 @@ public class SliderAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        super.destroyItem(container, position, object);
         container.removeView((View)object);
 
     }

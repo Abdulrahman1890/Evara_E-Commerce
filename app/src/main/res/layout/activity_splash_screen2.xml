@@ -11,9 +11,8 @@
         android:id="@+id/sp2_shagar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/shagar"
         android:scaleType="centerCrop"
-        />
+        android:src="@drawable/shagar" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/sp2_viewpager"

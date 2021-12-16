@@ -23,7 +23,7 @@ public class SliderAdapter extends PagerAdapter {
     String[] bodies = {
             "Get everything you need easily through a simple and pleasant interface that will help you" ,
             "Save your money with continuous offers and discounts on all products" ,
-            "Continuous technical support around the clock,  thus achieving the first item in credibility and integrity"
+            "Continuous technical support around the clock, thus achieving the first item in credibility and integrity"
     };
 
     public SliderAdapter(Context context){

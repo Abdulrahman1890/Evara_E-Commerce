@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/register"
+    android:background="@drawable/REGISTER"
     tools:context=".Register">
 
     <Button
@@ -45,6 +45,7 @@
         android:textColor="@color/black"
         />
     <EditText
+        android:id="@+id/register_edt_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/edittext_design"
@@ -62,6 +63,7 @@
             android:textColor="@color/black"
             />
         <EditText
+            android:id="@+id/register_edt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_design"
@@ -79,6 +81,7 @@
             android:textColor="@color/black"
             />
         <EditText
+            android:id="@+id/register_edt_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_design"
@@ -96,6 +99,7 @@
             android:textColor="@color/black"
             />
         <EditText
+            android:id="@+id/register_edt_confirmpassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_design"

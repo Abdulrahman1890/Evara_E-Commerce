@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/moto"
-        android:duration="3000"/>
-    <item android:drawable="@drawable/cart"
-        android:duration="3000"/>
-    <item android:drawable="@drawable/support"
-        android:duration="3000"/>
-</animation-list>

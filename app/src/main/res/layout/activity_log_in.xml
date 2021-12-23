@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/login_layout"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="100dp"
         android:text="LogIn"
         android:textColor="@color/Green"
         android:textSize="48sp"
@@ -37,7 +37,7 @@
         android:id="@+id/login_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/login_btn"
+        android:layout_above="@id/check_sign"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
@@ -75,8 +75,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:counterEnabled="true"
-            app:counterMaxLength="30"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -89,18 +87,21 @@
                 android:padding="16dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="Keep me signed in"
-            android:textSize="25sp"
-            />
-
-
 
     </LinearLayout>
 
-
+    <CheckBox
+        android:id="@+id/check_sign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/login_btn"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        android:buttonTint="@color/DarkGreen"
+        android:text="Keep me signed in"
+        android:textSize="25sp" />
 
 </RelativeLayout>

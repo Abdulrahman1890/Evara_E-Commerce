@@ -20,16 +20,17 @@
         android:text="Register"
         android:textColor="@drawable/button_text_color"
         android:textSize="20sp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@id/register_layout"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
         android:text="Register"
         android:textColor="@color/Green"
-        android:textStyle="bold"
-        android:layout_marginBottom="70dp"
-        android:layout_above="@id/register_layout"
-        android:textSize="48sp"/>
+        android:textSize="48sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/register_layout"

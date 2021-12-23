@@ -15,6 +15,16 @@ public interface RetrofitAPI {
     Call<RegisterRespond> addUser(
             @Field("username") String username,
             @Field("email") String email,
-            @Field("password") String password);
+            @Field("password") String password
+    );
+
+    @FormUrlEncoded
+    @POST("user_login")
+
+        //on below line we are creating a method to post our data.
+    Call<RegisterRespond> loginUser(
+            @Field("email") String email,
+            @Field("password") String password
+    );
 }
 

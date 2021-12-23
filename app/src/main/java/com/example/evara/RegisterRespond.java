@@ -3,6 +3,7 @@ package com.example.evara;
 public class RegisterRespond {
     Boolean status;
     String errNum , msg;
+    User user;
 
     public Boolean getStatus() {
         return status;
@@ -26,5 +27,13 @@ public class RegisterRespond {
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

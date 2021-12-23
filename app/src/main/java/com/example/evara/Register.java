@@ -43,35 +43,53 @@ public class Register extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                        // validating if the text field is empty or not.
-                        if(!password.getText().toString().equals(confirmPassword.getText().toString()))
-                        {
-                            Toast.makeText(getApplicationContext(), "Password are not equal", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        else if (userName.getText().toString().isEmpty() && email.getText().toString().isEmpty() && password.getText().toString().isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Please enter all the values", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        // calling a method to post the data and passing our name and job.
-                        User user = new User(userName.getText().toString(),email.getText().toString(),password.getText().toString());
-                        Call<RegisterRespond> call = ApiClient.getInstance().getApi().addUser(user.getName(),user.getEmail(),user.getPassword());
+                // validating if the text field is empty or not.
+                if (userName.getText().toString().isEmpty()) {
+                    userName.setError("Username is empty");
+                    userName.setFocusable(true);
+                }
+                else if (email.getText().toString().isEmpty()) {
+                    email.setError("Email is empty");
+                    email.setFocusable(true);
+                }
+                else if (password.getText().toString().isEmpty()) {
+                    password.setError("Password is empty");
+                    password.setFocusable(true);
+                }
+                else if (!password.getText().toString().equals(confirmPassword.getText().toString())) {
 
-                        call.enqueue(new Callback<RegisterRespond>() {
-                            @Override
-                            public void onResponse(Call<RegisterRespond> call, Response<RegisterRespond> response) {
+                    confirmPassword.setError("Passwords aren't similar");
+                    confirmPassword.setFocusable(true);
+                    return;
+                }
 
-                                Toast.makeText(getApplicationContext(), "Successed " + response.body().getStatus(), Toast.LENGTH_LONG).show();
-                            }
-
-                            @Override
-                            public void onFailure(Call<RegisterRespond> call, Throwable t) {
-                                Toast.makeText(getApplicationContext(), "failed" + t.getMessage(), Toast.LENGTH_LONG).show();
-                            }
-                        });
-                    }
+                // calling a method to post the data and passing our name and job.
+                else {
+                    add();
+                }
+            }
                 });
 
 
+
     }
+
+    public void add(){
+        User user = new User(userName.getText().toString(), email.getText().toString(), password.getText().toString());
+        Call<RegisterRespond> call = ApiClient.getInstance().getApi().addUser(user.getName(), user.getEmail(), user.getPassword());
+
+        call.enqueue(new Callback<RegisterRespond>() {
+            @Override
+            public void onResponse(Call<RegisterRespond> call, Response<RegisterRespond> response) {
+
+                Toast.makeText(getApplicationContext(), "Successed " + response.body().getStatus(), Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onFailure(Call<RegisterRespond> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Failed" + t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
 }

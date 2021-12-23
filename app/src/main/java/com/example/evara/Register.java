@@ -41,26 +41,20 @@ public class Register extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                // validating if the text field is empty or not.
+               // validating if the text field is empty or not.
                 if (userName.getText().toString().isEmpty()) {
                     userName.setError("Username is empty");
-                    userName.setFocusable(true);
                 }
                 else if (email.getText().toString().isEmpty()) {
                     email.setError("Email is empty");
-                    email.setFocusable(true);
                 }
                 else if (password.getText().toString().isEmpty()) {
                     password.setError("Password is empty");
-                    password.setFocusable(true);
                 }
                 else if (!password.getText().toString().equals(confirmPassword.getText().toString())) {
 
                     confirmPassword.setError("Passwords aren't similar");
-                    confirmPassword.setFocusable(true);
-                    return;
+
                 }
 
                 // calling a method to post the data and passing our name and job.
@@ -68,7 +62,7 @@ public class Register extends AppCompatActivity {
                     add();
                 }
             }
-                });
+        });
 
 
 

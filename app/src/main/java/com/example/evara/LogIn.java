@@ -38,10 +38,8 @@ public class LogIn extends AppCompatActivity {
             public void onClick(View v) {
                 if(email.getText().toString().isEmpty()){
                     email.setError("Can't be Empty");
-                    email.setFocusable(true);
                 }else if(password.getText().toString().isEmpty()){
                     password.setError("Can't be Empty");
-                    password.setFocusable(true);
                 }
                 else{
                     login();
@@ -65,11 +63,9 @@ public class LogIn extends AppCompatActivity {
                 else{
                     if(registerRespond.getErrNum().equals("E007")){
                         email.setError("Invalid Email");
-                        email.setFocusable(true);
                     }
                     else if(registerRespond.getErrNum().equals("E1001")){
                         password.setError("Invalid Password");
-                        password.setFocusable(true);
                     }
                     else{
                         Toast.makeText(getApplicationContext(), registerRespond.getMsg(), Toast.LENGTH_SHORT).show();

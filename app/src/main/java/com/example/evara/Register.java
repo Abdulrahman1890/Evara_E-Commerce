@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -53,35 +54,24 @@ public class Register extends AppCompatActivity {
                             return;
                         }
                         // calling a method to post the data and passing our name and job.
-                        add(userName.getText().toString(), email.getText().toString(),password.getText().toString());
+                        User user = new User(userName.getText().toString(),email.getText().toString(),password.getText().toString());
+                        Call<RegisterRespond> call = ApiClient.getInstance().getApi().addUser(user.getName(),user.getEmail(),user.getPassword());
+
+                        call.enqueue(new Callback<RegisterRespond>() {
+                            @Override
+                            public void onResponse(Call<RegisterRespond> call, Response<RegisterRespond> response) {
+
+                                Toast.makeText(getApplicationContext(), "Successed " + response.body().getStatus(), Toast.LENGTH_LONG).show();
+                            }
+
+                            @Override
+                            public void onFailure(Call<RegisterRespond> call, Throwable t) {
+                                Toast.makeText(getApplicationContext(), "failed" + t.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        });
                     }
                 });
 
 
-    }
-    private void add(String name,String mail,String pass){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://evara-shop.ahmed-projects.me/api/register_user")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
-
-        User user = new User(name,mail,pass);
-
-        Call<User> call = retrofitAPI.addUser(user);
-
-
-        call.enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                Toast.makeText(getApplicationContext(), "Data added to API", Toast.LENGTH_SHORT).show();
-
-            }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Failed!", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 }

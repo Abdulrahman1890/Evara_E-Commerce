@@ -10,8 +10,19 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/evaraicon"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.Evara">
+        android:theme="@style/Theme.Evara"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".NavigateHomeScreen"
+            android:exported="true"
+            android:label="@string/title_activity_navigate_home_screen"
+            android:theme="@style/Theme.Evara.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".LogIn"
             android:exported="false" />
@@ -26,12 +37,8 @@
             android:exported="false" />
         <activity
             android:name=".SplashScreen1"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"

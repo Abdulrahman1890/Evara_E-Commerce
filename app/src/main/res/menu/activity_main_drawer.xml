@@ -21,16 +21,17 @@
                     android:id="@+id/nav_update"
                     android:icon="@drawable/update"
                     android:title="Update Account" />
-                <item
-                    android:id="@+id/nav_delete"
-                    android:icon="@drawable/delete"
-                    android:title="Delete Account" />
 
                 <item
                     android:id="@+id/nav_about"
                     android:icon="@drawable/about"
                     android:title="About Us" />
                 </group>
+                <item
+                    android:id="@+id/nav_delete"
+                    android:icon="@drawable/delete"
+                    android:title="Delete Account" />
+
                 <item
                     android:id="@+id/nav_logout"
                     android:icon="@drawable/logout"

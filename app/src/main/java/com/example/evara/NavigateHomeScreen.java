@@ -59,17 +59,16 @@ public class NavigateHomeScreen extends AppCompatActivity implements NavigationV
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new CartFragement()).commit();
                 break;
-            case R.id.nav_delete:
+            case R.id.nav_about:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new DeleteAccountFragement()).commit();
+                        new AboutUsFragement()).commit();
                 break;
             case R.id.nav_update:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new UpdateAccountFragement()).commit();
                 break;
-            case R.id.nav_about:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new AboutUsFragement()).commit();
+            case R.id.nav_delete:
+                Toast.makeText(getApplicationContext(), "Delete account", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_logout:
                 Toast.makeText(getApplicationContext(), "Log Out", Toast.LENGTH_SHORT).show();

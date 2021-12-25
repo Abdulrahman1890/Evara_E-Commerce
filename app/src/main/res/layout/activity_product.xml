@@ -47,24 +47,23 @@
                     android:text="59.99$"
                     android:layout_marginStart="20dp"
                     android:textColor="@color/Green"
-                    android:textSize="30dp"
+                    android:textSize="35dp"
                     android:textStyle="bold" />
 
                 <RatingBar
                     android:id="@+id/ratingBar"
                     android:layout_width="wrap_content"
-                    android:layout_height="43dp"
+                    android:layout_height="46dp"
                     android:layout_marginLeft="-50dp"
-                    android:scaleX="0.5"
-                    android:scaleY="0.5"
                     android:progressBackgroundTint="@color/yellow"
-                     />
+                    android:scaleX="0.5"
+                    android:scaleY="0.5" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="(14) reviews"
                     android:layout_marginLeft="-50dp"
-                    android:layout_marginTop="-5dp"/>
+                    android:layout_marginTop="-7dp"/>
 
             </LinearLayout>
 
@@ -79,37 +78,40 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_height="51dp"
                 android:layout_gravity="center"
+                android:layout_margin="10dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:layout_width="45dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/redbutton"
                     android:layout_marginHorizontal="10dp"
-                    />
+                    android:background="@drawable/redbutton" />
+
                 <Button
                     android:layout_width="45dp"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/yellowbutton"/>
+                    android:background="@drawable/yellowbutton" />
+
                 <Button
                     android:layout_width="45dp"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/blackbutton"/>
+                    android:background="@drawable/blackbutton" />
+
                 <Button
                     android:layout_width="45dp"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/ligthgreenbutton"/>
+                    android:background="@drawable/ligthgreenbutton" />
+
                 <Button
                     android:layout_width="45dp"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/orangebutton"/>
+                    android:background="@drawable/orangebutton" />
 
 
             </LinearLayout>

@@ -13,6 +13,10 @@
         layout="@layout/app_bar_navigate_home_screen"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -22,4 +26,5 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_navigate_home_screen"
         app:menu="@menu/activity_main_drawer" />
+
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -13,29 +13,30 @@
             android:icon="@drawable/carticon"
             android:title="Cart" />
 
+
+        <item android:title="Others">
+            <menu>
+                <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_update"
+                    android:icon="@drawable/update"
+                    android:title="Update Account" />
+                <item
+                    android:id="@+id/nav_delete"
+                    android:icon="@drawable/delete"
+                    android:title="Delete Account" />
+
+                <item
+                    android:id="@+id/nav_about"
+                    android:icon="@drawable/about"
+                    android:title="About Us" />
+                </group>
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/logout"
+                    android:title="Log Out" />
+
+            </menu>
+        </item>
     </group>
-
-    <item android:title="Others">
-        <menu>
-            <item
-                android:id="@+id/nav_update"
-                android:icon="@drawable/update"
-                android:title="Update Account" />
-            <item
-                android:id="@+id/nav_delete"
-                android:icon="@drawable/delete"
-                android:title="Delete Account" />
-
-            <item
-                android:id="@+id/nav_about"
-                android:icon="@drawable/about"
-                android:title="About Us" />
-            <item
-                android:id="@+id/nav_logout"
-                android:icon="@drawable/logout"
-                android:title="Log Out" />
-        </menu>
-
-
-    </item>
 </menu>

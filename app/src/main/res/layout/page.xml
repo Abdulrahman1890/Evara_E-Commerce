@@ -12,9 +12,8 @@
         android:id="@+id/page_img"
         android:layout_width="375dp"
         android:layout_height="259dp"
-        android:src="@drawable/moto"
         android:scaleType="centerCrop"
-        />
+        android:src="@drawable/moto" />
 
     <TextView
         android:id="@+id/page_head"

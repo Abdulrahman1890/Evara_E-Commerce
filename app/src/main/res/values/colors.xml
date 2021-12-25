@@ -17,4 +17,9 @@
     <color name="LigthBlue">#4f5d77</color>
     <color name="Blue">#63a2c1</color>
     <color name="Pink">#d77f7a</color>
+    <color name="red">#ba0000</color>
+    <color name="yellow">#ffd900</color>
+    <color name="blue">#025dfa</color>
+    <color name="orange">#ff7b00</color>
+    <color name="lightgreen">#0ff702</color>
 </resources>

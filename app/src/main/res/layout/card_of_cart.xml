@@ -19,44 +19,59 @@
             android:id="@+id/cart_item_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/cart_item_img"
             android:layout_marginTop="20dp"
+            android:layout_toEndOf="@id/cart_item_img"
             android:text="header"
+            android:layout_marginStart="10dp"
             android:textColor="@color/black"
-            android:textSize="24sp" />
+            android:textSize="27sp" />
 
         <TextView
             android:id="@+id/cart_item_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/cart_item_header"
+            android:layout_marginStart="20dp"
             android:layout_toEndOf="@id/cart_item_img"
-            android:layout_marginStart="5dp"
             android:gravity="end"
             android:text="$ 3000"
             android:textColor="@color/Green"
-            android:textSize="16sp" />
+            android:textSize="22sp" />
+
+        <ImageButton
+            android:id="@+id/cart_item_delete"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:background="@color/white"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/deleteitem"
+            tools:ignore="SpeakableTextPresentCheck" />
+
 
         <ImageButton
             android:id="@+id/cart_item_dec"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_below="@id/cart_item_price"
+            android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/cart_item_img"
             android:background="@color/white"
-            android:src="@drawable/remove_circle_24"
-            tools:ignore="SpeakableTextPresentCheck"
+            android:padding="5dp"
             android:scaleType="centerCrop"
-            android:padding="10dp"/>
+            android:src="@drawable/remove_circle_24"
+            tools:ignore="SpeakableTextPresentCheck" />
+
         <TextView
             android:id="@+id/cart_item_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:layout_toEndOf="@id/cart_item_dec"
             android:layout_below="@id/cart_item_price"
+            android:layout_toEndOf="@id/cart_item_dec"
+            android:padding="15dp"
             android:text="5"
-            android:textSize="16dp"/>
+            android:textSize="20sp" />
 
         <ImageButton
             android:id="@+id/cart_item_inc"
@@ -65,10 +80,10 @@
             android:layout_below="@id/cart_item_price"
             android:layout_toEndOf="@id/cart_item_quantity"
             android:background="@color/white"
-            android:src="@drawable/add_circle_24"
-            tools:ignore="SpeakableTextPresentCheck"
+            android:padding="5dp"
             android:scaleType="centerCrop"
-            android:padding="10dp"/>
+            android:src="@drawable/add_circle_24"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

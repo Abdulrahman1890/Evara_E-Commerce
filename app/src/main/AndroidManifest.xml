@@ -14,8 +14,15 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".Product"
-            android:exported="false" />
-        <activity
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
+               <activity
             android:name=".NavigateHomeScreen"
             android:exported="false"
             android:theme="@style/Theme.Evara.NoActionBar"></activity>
@@ -33,12 +40,8 @@
             android:exported="false" />
         <activity
             android:name=".SplashScreen1"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"

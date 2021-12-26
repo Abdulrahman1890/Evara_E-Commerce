@@ -13,15 +13,19 @@
         android:theme="@style/Theme.Evara"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".NavigateHomeScreen"
-            android:exported="true"
-            android:theme="@style/Theme.Evara.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".Product"
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
+
+               <activity
+            android:name=".NavigateHomeScreen"
+            android:exported="false"
+            android:theme="@style/Theme.Evara.NoActionBar"></activity>
         <activity
             android:name=".LogIn"
             android:exported="false" />

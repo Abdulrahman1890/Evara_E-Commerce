@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Product">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/clothes"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Men Clothes - Vest &amp; Shoes"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_margin="10dp"
+                android:textColor="@color/black"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:text="59.99$"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/Green"
+                    android:textSize="35sp"
+                    android:textStyle="bold" />
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="46dp"
+                    android:layout_marginLeft="-50dp"
+                    android:progressBackgroundTint="@color/yellow"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(14) reviews"
+                    android:layout_marginStart="-50dp"
+                    android:layout_marginTop="-7dp"/>
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Color"
+                android:textSize="25sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="51dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/redbutton"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <Button
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/yellowbutton"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <Button
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/blackbutton"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <Button
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/ligthgreenbutton"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <Button
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/orangebutton"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Size"
+                android:textSize="25sp"
+                android:layout_margin="10dp"
+                />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/edittext_design"
+                android:text="S"
+                android:textSize="20dp" />
+
+            <Button
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/edittext_design"
+                android:text="M"
+                android:textSize="20dp" />
+
+            <Button
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/edittext_design"
+                android:text="L"
+                android:textSize="20dp" />
+
+            <Button
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/edittext_design"
+                android:text="XL"
+                android:textSize="20dp" />
+
+            <Button
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/edittext_design"
+                android:text="2XL"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/green_button"
+                android:padding="17dp"
+                android:text="Add To Cart"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:textColor="@drawable/button_text_color"
+                android:textSize="25sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Details"
+                android:textSize="25sp"
+                android:layout_margin="10dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" This is the details of the product \n This is the details of the product \n This is the details of the product"
+                android:textSize="25sp"
+                android:layout_marginHorizontal="15dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reviews"
+                android:layout_margin="10dp"
+                android:textSize="25sp"
+                android:layout_marginHorizontal="15dp"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Herfy Ragab"
+                android:textColor="@color/black"
+                android:layout_marginHorizontal="20dp"
+                android:textSize="22sp"
+                />
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="43dp"
+                    android:layout_marginTop="-7dp"
+                    android:progressBackgroundTint="@color/yellow"
+                    android:scaleX="0.55"
+                    android:scaleY="0.55"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Good Product Good Product Good Product"
+                android:layout_marginStart="20dp"
+                android:textSize="20sp"
+                android:layout_marginBottom="5dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Herfy Ragab"
+                    android:textColor="@color/black"
+                    android:layout_marginHorizontal="20dp"
+                    android:textSize="22sp"
+                    />
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="43dp"
+                    android:layout_marginTop="-7dp"
+                    android:progressBackgroundTint="@color/yellow"
+                    android:scaleX="0.55"
+                    android:scaleY="0.55"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Good Product Good Product Good Product"
+                android:layout_marginStart="20dp"
+                android:textSize="20sp"
+                android:layout_marginBottom="5dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

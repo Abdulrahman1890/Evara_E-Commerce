@@ -12,6 +12,7 @@
         <entry key="..\:/Evara_Ghanem/app/src/main/res/layout/page.xml" value="0.25" />
         <entry key="..\:/task/Evara/app/src/main/res/drawable/button_text_color.xml" value="0.14351851851851852" />
         <entry key="..\:/task/Evara/app/src/main/res/drawable/green_button.xml" value="0.14351851851851852" />
+        <entry key="..\:/task/Evara/app/src/main/res/drawable/ic_baseline_remove_circle_24.xml" value="0.16944444444444445" />
         <entry key="..\:/task/Evara/app/src/main/res/layout/about_us_fragement.xml" value="0.1234375" />
         <entry key="..\:/task/Evara/app/src/main/res/layout/activity_get_started.xml" value="0.1793478260869565" />
         <entry key="..\:/task/Evara/app/src/main/res/layout/activity_log_in.xml" value="0.1234375" />
@@ -19,6 +20,7 @@
         <entry key="..\:/task/Evara/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/task/Evara/app/src/main/res/layout/activity_splash_screen2.xml" value="0.2" />
         <entry key="..\:/task/Evara/app/src/main/res/layout/app_bar_navigate_home_screen.xml" value="0.1793478260869565" />
+        <entry key="..\:/task/Evara/app/src/main/res/layout/card_of_cart.xml" value="0.264" />
         <entry key="..\:/task/Evara/app/src/main/res/layout/cart_fragement.xml" value="0.1234375" />
         <entry key="..\:/task/Evara/app/src/main/res/layout/content_navigate_home_screen.xml" value="0.1234375" />
         <entry key="..\:/task/Evara/app/src/main/res/layout/delete_account_fragement.xml" value="0.1234375" />

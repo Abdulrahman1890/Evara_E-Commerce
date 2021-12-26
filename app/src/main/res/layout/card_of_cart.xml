@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        >
+        <ImageView
+            android:id="@+id/cart_item_img"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/cart"
+            android:layout_marginEnd="4dp"/>
+
+        <TextView
+            android:id="@+id/cart_item_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/cart_item_img"
+            android:layout_marginTop="20dp"
+            android:text="header"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/cart_item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cart_item_header"
+            android:layout_toEndOf="@id/cart_item_img"
+            android:layout_marginStart="5dp"
+            android:gravity="end"
+            android:text="$ 3000"
+            android:textColor="@color/Green"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:id="@+id/cart_item_dec"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/cart_item_price"
+            android:layout_toEndOf="@id/cart_item_img"
+            android:background="@color/white"
+            android:src="@drawable/remove_circle_24"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:scaleType="centerCrop"
+            android:padding="10dp"/>
+        <TextView
+            android:id="@+id/cart_item_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_toEndOf="@id/cart_item_dec"
+            android:layout_below="@id/cart_item_price"
+            android:text="5"
+            android:textSize="16dp"/>
+
+        <ImageButton
+            android:id="@+id/cart_item_inc"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/cart_item_price"
+            android:layout_toEndOf="@id/cart_item_quantity"
+            android:background="@color/white"
+            android:src="@drawable/add_circle_24"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:scaleType="centerCrop"
+            android:padding="10dp"/>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class CartFragement extends Fragment {
     RecyclerView recyclerView;
@@ -35,6 +36,12 @@ public class CartFragement extends Fragment {
         items.add(new ItemCart(R.drawable.cart,"cart car",3000,1));
         adapter = new CartAdapter(items);
         recyclerView.setAdapter(adapter);
+
+        Iterator<ItemCart> it = items.iterator();
+        while(it.hasNext()){
+            ItemCart s = it.next();
+        }
+
 
         return view;
     }

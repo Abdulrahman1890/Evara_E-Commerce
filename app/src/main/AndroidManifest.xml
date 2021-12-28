@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.evara">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -13,19 +15,30 @@
         android:theme="@style/Theme.Evara"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Product"
-            android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:name=".GPSTracker"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".Map"
+            android:exported="false" />
+        <activity
+            android:name=".Payment"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
-               <activity
+        <activity
+            android:name=".Product"
+            android:exported="false" />
+        <activity
             android:name=".NavigateHomeScreen"
             android:exported="false"
-            android:theme="@style/Theme.Evara.NoActionBar"></activity>
+            android:theme="@style/Theme.Evara.NoActionBar">
+
+        </activity>
         <activity
             android:name=".LogIn"
             android:exported="false" />
@@ -40,9 +53,7 @@
             android:exported="false" />
         <activity
             android:name=".SplashScreen1"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />

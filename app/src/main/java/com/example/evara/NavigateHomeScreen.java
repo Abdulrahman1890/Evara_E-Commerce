@@ -1,5 +1,7 @@
 package com.example.evara;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.Menu;
@@ -10,6 +12,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
@@ -68,11 +71,31 @@ public class NavigateHomeScreen extends AppCompatActivity implements NavigationV
                         new UpdateAccountFragement()).commit();
                 break;
             case R.id.nav_delete:
-                Toast.makeText(getApplicationContext(), "Delete account", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder m = new AlertDialog.Builder(NavigateHomeScreen.this)
+                        .setTitle("Delete?!")
+                        .setIcon(R.drawable.evara)
+                        .setMessage("Are you sure you want to delete your account? \uD83E\uDD7A")
+                        .setPositiveButton("No", null)
+                        .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                //نربطها بالapi عشان نمسح الداتا
+
+                                startActivity(new Intent(NavigateHomeScreen.this,LogIn.class));
+                                finish();
+                            }
+                        });
+                m.create().show();
                 break;
             case R.id.nav_logout:
-                Toast.makeText(getApplicationContext(), "Log Out", Toast.LENGTH_SHORT).show();
-                break;
+                // لازم نعمل هنا الshared preference
+              /*  getSharedPreferences("rememberstu",MODE_PRIVATE)
+                        .edit()
+                        .clear()
+                        .commit();
+                */
+                startActivity(new Intent(NavigateHomeScreen.this,LogIn.class));                break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

@@ -88,6 +88,16 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
+        <TextView
+            android:id="@+id/forgetpass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forget Password"
+            android:textSize="23sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/Green"
+            android:layout_gravity="center"/>
+
     </LinearLayout>
 
     <CheckBox

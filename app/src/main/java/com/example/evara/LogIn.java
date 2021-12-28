@@ -2,10 +2,12 @@ package com.example.evara;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -20,6 +22,7 @@ public class LogIn extends AppCompatActivity {
     private TextInputEditText password;
     private EditText email;
     private Button login;
+    private TextView forgetpassword;
 
 
     @Override
@@ -32,6 +35,8 @@ public class LogIn extends AppCompatActivity {
         email = findViewById(R.id.login_edt_email);
         password = findViewById(R.id.login_edt_password);
         login = findViewById(R.id.login_btn);
+        forgetpassword = findViewById(R.id.forgetpass);
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +49,13 @@ public class LogIn extends AppCompatActivity {
                 else{
                     login();
                 }
+            }
+        });
+
+        forgetpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // startActivity(new Intent(LogIn.this,));
             }
         });
 
@@ -79,6 +91,5 @@ public class LogIn extends AppCompatActivity {
             }
         });
     }
-
 
 }

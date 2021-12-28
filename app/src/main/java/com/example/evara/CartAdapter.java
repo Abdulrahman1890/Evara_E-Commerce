@@ -19,7 +19,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public static class CartViewHolder extends RecyclerView.ViewHolder{
         private ImageView img;
         private TextView header , price , quantity;
-        private ImageButton inc , dec ;
+        private ImageButton inc , dec , remove;
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
             img = itemView.findViewById(R.id.cart_item_img);
@@ -28,6 +28,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             quantity = itemView.findViewById(R.id.cart_item_quantity);
             inc = itemView.findViewById(R.id.cart_item_inc);
             dec = itemView.findViewById(R.id.cart_item_dec);
+            remove = itemView.findViewById(R.id.cart_item_delete);
         }
     }
 
@@ -56,7 +57,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             public void onClick(View view) {
                 int quantity = itemCart.getQuantity() + 1;
                 itemCart.setQuantity(quantity);
-                notifyDataSetChanged();
+                notifyItemChanged(holder.getBindingAdapterPosition());
             }
         });
         holder.dec.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +67,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 if(quantity > 1)
                     quantity--;
                 itemCart.setQuantity(quantity);
-                notifyDataSetChanged();
+                notifyItemChanged(holder.getBindingAdapterPosition());
+            }
+        });
+        holder.remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                items.remove(holder.getBindingAdapterPosition());
+                notifyItemRemoved(holder.getBindingAdapterPosition());
             }
         });
     }

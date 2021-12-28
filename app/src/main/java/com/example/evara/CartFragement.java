@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class CartFragement extends Fragment {
     RecyclerView recyclerView;
-    RecyclerView.Adapter adapter;
+    CartAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
     ArrayList<ItemCart> items;
     @Nullable

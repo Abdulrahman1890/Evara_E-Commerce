@@ -2,6 +2,7 @@ package com.example.evara;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -59,6 +60,9 @@ public class LogIn extends AppCompatActivity {
 
                 if(registerRespond.getStatus()){
                     Toast.makeText(getApplicationContext(), "Successd", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),NavigateHomeScreen.class);
+                    startActivity(intent);
+
                 }
                 else{
                     if(registerRespond.getErrNum().equals("E007")){

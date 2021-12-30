@@ -13,17 +13,15 @@
         android:theme="@style/Theme.Evara"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".CatoGridView"
+            android:exported="false" />
+        <activity
             android:name=".Product"
-            android:exported="false">
-
-        </activity>
-
-               <activity
+            android:exported="false"></activity>
+        <activity
             android:name=".NavigateHomeScreen"
             android:exported="false"
-            android:theme="@style/Theme.Evara.NoActionBar">
-
-               </activity>
+            android:theme="@style/Theme.Evara.NoActionBar"></activity>
         <activity
             android:name=".LogIn"
             android:exported="false" />

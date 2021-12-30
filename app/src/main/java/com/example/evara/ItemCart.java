@@ -1,10 +1,10 @@
 package com.example.evara;
 
 public class ItemCart {
-    private int image;
+    private int image , quantity;
     private String header;
     private double price;
-    private int quantity;
+
 
     public ItemCart(int image, String header, double price, int quantity) {
         this.image = image;

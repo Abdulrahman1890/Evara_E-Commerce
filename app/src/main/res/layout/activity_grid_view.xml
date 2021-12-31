@@ -14,12 +14,12 @@
         android:text="Title"
         android:textSize="18sp"
         android:textColor="@color/black"/>
-    <GridView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/grid_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:numColumns="3"
         android:layout_marginTop="5dp"
+        android:padding="5dp"
         android:gravity="center"/>
 
 </LinearLayout>

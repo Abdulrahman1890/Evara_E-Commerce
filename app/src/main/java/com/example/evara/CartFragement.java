@@ -15,10 +15,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class CartFragement extends Fragment {
-    RecyclerView recyclerView;
-    CartAdapter adapter;
-    RecyclerView.LayoutManager layoutManager;
-    ArrayList<ItemCart> items;
+    private RecyclerView recyclerView;
+    private CartAdapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private ArrayList<ItemCart> items;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -36,12 +36,6 @@ public class CartFragement extends Fragment {
         items.add(new ItemCart(R.drawable.cart,"cart car",3000,1));
         adapter = new CartAdapter(items);
         recyclerView.setAdapter(adapter);
-
-        Iterator<ItemCart> it = items.iterator();
-        while(it.hasNext()){
-            ItemCart s = it.next();
-        }
-
 
         return view;
     }

@@ -14,8 +14,8 @@ import android.widget.TextView;
 
 public class GetStarted extends AppCompatActivity {
 
-    Button getStarted;
-    TextView signIn;
+    private Button getStarted;
+    private TextView signIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

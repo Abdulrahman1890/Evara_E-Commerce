@@ -20,15 +20,52 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         private ImageView img;
         private TextView header , price , quantity;
         private ImageButton inc , dec , remove;
+        View itemView;
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
-            img = itemView.findViewById(R.id.cart_item_img);
-            header = itemView.findViewById(R.id.cart_item_header);
-            price = itemView.findViewById(R.id.cart_item_price);
-            quantity = itemView.findViewById(R.id.cart_item_quantity);
-            inc = itemView.findViewById(R.id.cart_item_inc);
-            dec = itemView.findViewById(R.id.cart_item_dec);
-            remove = itemView.findViewById(R.id.cart_item_delete);
+            this.itemView = itemView;
+        }
+
+        public ImageView getImg() {
+            if(img == null)
+                img = itemView.findViewById(R.id.cart_item_img);
+            return img;
+        }
+
+        public TextView getHeader() {
+            if(header == null)
+                header = itemView.findViewById(R.id.cart_item_header);
+            return header;
+        }
+
+        public TextView getPrice() {
+            if(price == null)
+                price = itemView.findViewById(R.id.cart_item_price);
+            return price;
+        }
+
+        public TextView getQuantity() {
+            if(quantity == null)
+                quantity = itemView.findViewById(R.id.cart_item_quantity);
+            return quantity;
+        }
+
+        public ImageButton getInc() {
+            if(inc == null)
+                inc = itemView.findViewById(R.id.cart_item_inc);
+             return inc;
+        }
+
+        public ImageButton getDec() {
+            if(dec == null)
+                dec = itemView.findViewById(R.id.cart_item_dec);
+            return dec;
+        }
+
+        public ImageButton getRemove() {
+            if(remove == null)
+                remove = itemView.findViewById(R.id.cart_item_delete);
+            return remove;
         }
     }
 
@@ -47,12 +84,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     @Override
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         ItemCart itemCart = items.get(position);
-        holder.img.setImageResource(itemCart.getImage());
-        holder.header.setText(itemCart.getHeader());
-        holder.price.setText("$ " + itemCart.getPrice());
-        holder.quantity.setText(itemCart.getQuantity() + "");
+        holder.getImg().setImageResource(itemCart.getImage());
+        holder.getHeader().setText(itemCart.getHeader());
+        holder.getPrice().setText("$ " + itemCart.getPrice());
+        holder.getQuantity().setText(itemCart.getQuantity() + "");
 
-        holder.inc.setOnClickListener(new View.OnClickListener() {
+        holder.getInc().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int quantity = itemCart.getQuantity() + 1;
@@ -60,7 +97,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 notifyItemChanged(holder.getBindingAdapterPosition());
             }
         });
-        holder.dec.setOnClickListener(new View.OnClickListener() {
+        holder.getDec().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int quantity = itemCart.getQuantity();
@@ -70,7 +107,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 notifyItemChanged(holder.getBindingAdapterPosition());
             }
         });
-        holder.remove.setOnClickListener(new View.OnClickListener() {
+        holder.getRemove().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 items.remove(holder.getBindingAdapterPosition());

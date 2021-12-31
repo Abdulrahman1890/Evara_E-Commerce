@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class HomeFragement extends Fragment {
-    RecyclerView verticalRecyclerView;
-    HomeVerticalAdapter adapter;
-    ArrayList<VerticalModel> arrayList;
+    private RecyclerView verticalRecyclerView;
+    private HomeVerticalAdapter adapter;
+    private ArrayList<CategoryModel> arrayList;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -33,18 +33,14 @@ public class HomeFragement extends Fragment {
     }
     public void setData(){
         for (int i = 1; i <= 5;i++){
-            VerticalModel verticalModel = new VerticalModel();
-            verticalModel.setTitle("Title" + i);
-            ArrayList<HorizontalModel> horizontalModelArrayList =new ArrayList<>();
+            ArrayList<ItemModel> itemModelArrayList =new ArrayList<>();
 
             for (int j = 1;j <= 5;j++){
-                HorizontalModel horizontalModel = new HorizontalModel();
-                horizontalModel.setName("Name" + j);
-                horizontalModel.setDescription("$ 3000");
-                horizontalModelArrayList.add(horizontalModel);
+                ItemModel itemModel = new ItemModel(R.drawable.cart,"Name " + j,3000);
+                itemModelArrayList.add(itemModel);
             }
-            verticalModel.setArrayList(horizontalModelArrayList);
-            arrayList.add(verticalModel);
+            CategoryModel categoryModel = new CategoryModel("Title " + i,itemModelArrayList );
+            arrayList.add(categoryModel);
         }
         adapter.notifyDataSetChanged();
     }

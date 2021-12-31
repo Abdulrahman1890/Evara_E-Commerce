@@ -13,45 +13,62 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class HorizontalHomeAdapter extends RecyclerView.Adapter<HorizontalHomeAdapter.HorizontalViewHolder> {
+public class HorizontalHomeAdapter extends RecyclerView.Adapter<HorizontalHomeAdapter.SimpleItemViewHolder> {
 
     Context context;
-    ArrayList<HorizontalModel> arrayList;
+    ArrayList<ItemModel> arrayList;
 
-    public class HorizontalViewHolder extends RecyclerView.ViewHolder{
-        ImageView imageView;
-        TextView name , price;
-        public HorizontalViewHolder(@NonNull View itemView) {
+    public static class SimpleItemViewHolder extends RecyclerView.ViewHolder{
+        private ImageView img;
+        private TextView name , price;
+        private View itemView;
+        public SimpleItemViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.card_home_img);
-            name = itemView.findViewById(R.id.card_home_head);
-            price = itemView.findViewById(R.id.card_home_price);
+            this.itemView = itemView;
+        }
 
+        public ImageView getImg() {
+            if(img == null)
+                img = itemView.findViewById(R.id.card_home_img);
+            return img;
+        }
+
+        public TextView getName() {
+            if(name == null)
+                name = itemView.findViewById(R.id.card_home_head);
+            return name;
+        }
+
+        public TextView getPrice() {
+            if(price == null)
+                price = itemView.findViewById(R.id.card_home_price);
+            return price;
         }
     }
 
-    public HorizontalHomeAdapter(Context context, ArrayList<HorizontalModel> arrayList){
+    public HorizontalHomeAdapter(Context context, ArrayList<ItemModel> arrayList){
         this.context = context;
         this.arrayList = arrayList;
     }
 
     @NonNull
     @Override
-    public HorizontalViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SimpleItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_of_horizontal_home,parent,false);
-        return new HorizontalViewHolder(view);
+        return new SimpleItemViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HorizontalViewHolder holder, int position) {
-        HorizontalModel horizontalModel = arrayList.get(position);
-        holder.name.setText(horizontalModel.getName());
-        holder.price.setText(horizontalModel.getDescription());
+    public void onBindViewHolder(@NonNull SimpleItemViewHolder holder, int position) {
+        ItemModel itemModel = arrayList.get(position);
+        holder.getImg().setImageResource(itemModel.getImg());
+        holder.getName().setText(itemModel.getName());
+        holder.getPrice().setText("$ " + itemModel.getPrice());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context,Product.class);
-                context.startActivity(intent);
+                Intent intent = new Intent(view.getContext(),Product.class);
+                view.getContext().startActivity(intent);
             }
         });
     }

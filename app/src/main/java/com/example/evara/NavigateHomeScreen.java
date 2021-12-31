@@ -62,6 +62,10 @@ public class NavigateHomeScreen extends AppCompatActivity implements NavigationV
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new CartFragement()).commit();
                 break;
+            case R.id.nav_catogary:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new CatogaryFragment()).commit();
+                break;
             case R.id.nav_about:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new AboutUsFragement()).commit();

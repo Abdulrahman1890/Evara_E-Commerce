@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,23 +15,40 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class HomeVerticalAdapter extends RecyclerView.Adapter<HomeVerticalAdapter.VerticalViewHolder> {
-    Context context;
-    ArrayList<VerticalModel> arrayList;
+    private Context context;
+    private ArrayList<CategoryModel> arrayList;
 
-    public HomeVerticalAdapter(Context context,ArrayList<VerticalModel> arrayList){
+    public HomeVerticalAdapter(Context context,ArrayList<CategoryModel> arrayList){
         this.arrayList = arrayList;
         this.context = context;
     }
 
     public class VerticalViewHolder extends RecyclerView.ViewHolder{
-        RecyclerView recyclerView;
-        TextView title;
-        Button more;
+        private RecyclerView recyclerView;
+        private TextView categoryName;
+        private Button more;
+        private View itemView;
         public VerticalViewHolder(@NonNull View itemView) {
             super(itemView);
-            recyclerView = itemView.findViewById(R.id.card_horizontal_recycle_view);
-            title = itemView.findViewById(R.id.card_title);
-            more = itemView.findViewById(R.id.card_more);
+            this.itemView = itemView;
+        }
+
+        public RecyclerView getRecyclerView() {
+            if(recyclerView == null)
+                recyclerView = itemView.findViewById(R.id.card_horizontal_recycle_view);
+            return recyclerView;
+        }
+
+        public TextView getCategoryName() {
+            if(categoryName == null)
+                categoryName = itemView.findViewById(R.id.card_title);
+            return categoryName;
+        }
+
+        public Button getMore() {
+            if(more == null)
+                more = itemView.findViewById(R.id.card_more);
+            return more;
         }
     }
     @NonNull
@@ -44,19 +60,19 @@ public class HomeVerticalAdapter extends RecyclerView.Adapter<HomeVerticalAdapte
 
     @Override
     public void onBindViewHolder(@NonNull VerticalViewHolder holder, int position) {
-        VerticalModel verticalModel = arrayList.get(position);
-        String title = verticalModel.getTitle();
-        ArrayList<HorizontalModel> singleItem = verticalModel.getArrayList();
+        CategoryModel categoryModel = arrayList.get(position);
+        String title = categoryModel.getTitle();
+        ArrayList<ItemModel> singleItem = categoryModel.getArrayList();
 
-        holder.title.setText(title);
+        holder.getCategoryName().setText(title);
         HorizontalHomeAdapter horizontalHomeAdapter = new HorizontalHomeAdapter(context,singleItem);
-        holder.recyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));
-        holder.recyclerView.setAdapter(horizontalHomeAdapter);
-        holder.more.setOnClickListener(new View.OnClickListener() {
+        holder.getRecyclerView().setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));
+        holder.getRecyclerView().setAdapter(horizontalHomeAdapter);
+        holder.getMore().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context,CatoGridView.class);
-                context.startActivity(intent);
+                Intent intent = new Intent(view.getContext(),CatoGridView.class);
+                view.getContext().startActivity(intent);
             }
         });
     }

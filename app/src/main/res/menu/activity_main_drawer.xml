@@ -13,9 +13,9 @@
             android:icon="@drawable/carticon"
             android:title="Cart" />
         <item
-            android:id="@+id/nav_notify"
-            android:icon="@drawable/notify"
-            android:title="Notifications" />
+            android:id="@+id/nav_catogary"
+            android:icon="@drawable/categories"
+            android:title="Catogary" />
 
 
         <item android:title="Others">

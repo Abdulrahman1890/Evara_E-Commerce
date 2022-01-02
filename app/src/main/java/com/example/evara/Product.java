@@ -23,14 +23,14 @@ public class Product extends AppCompatActivity {
             @Override
             public void onResponse(Call<SingleProductResponse> call, Response<SingleProductResponse> response) {
                 SingleProductResponse singleProductResponse = response.body();
-                SingleProduct product = singleProductResponse.getProduct();
-                // set data of each product by product.method() to get the value
-                Toast.makeText(getApplicationContext(), product.getTitle(), Toast.LENGTH_SHORT).show();
+                SingleProduct[] product = singleProductResponse.getProduct();
+                // set data of each product by product[0].method() to get the value
+                Toast.makeText(getApplicationContext(), product[0].getTitle(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<SingleProductResponse> call, Throwable t) {
-
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }

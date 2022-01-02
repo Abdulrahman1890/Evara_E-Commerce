@@ -9,7 +9,7 @@ public class SingleProductResponse {
     boolean status;
     String errNum , msg;
     @SerializedName("The Product")
-    SingleProduct product;
+    SingleProduct[] product;
     @SerializedName("the comments")
     Comments[] comments;
 
@@ -37,11 +37,11 @@ public class SingleProductResponse {
         this.msg = msg;
     }
 
-    public SingleProduct getProduct() {
+    public SingleProduct[] getProduct() {
         return product;
     }
 
-    public void setProduct(SingleProduct product) {
+    public void setProduct(SingleProduct[] product) {
         this.product = product;
     }
 

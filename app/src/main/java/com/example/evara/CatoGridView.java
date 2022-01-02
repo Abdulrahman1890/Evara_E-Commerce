@@ -24,8 +24,8 @@ public class CatoGridView extends AppCompatActivity {
 
         arrayList = new ArrayList<ItemModel>();
         for (int i = 1;i <= 12; i++){
-            ItemModel itemModel = new ItemModel(R.drawable.cart,"Name " + i,3000);
-            arrayList.add(itemModel);
+            //ItemModel itemModel = new ItemModel(R.drawable.cart,"Name " + i,3000);
+            //arrayList.add(itemModel);
         }
 
         adapter = new HorizontalHomeAdapter(getApplicationContext(),arrayList);

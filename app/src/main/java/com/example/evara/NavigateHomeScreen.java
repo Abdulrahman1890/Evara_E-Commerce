@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,13 +28,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.evara.databinding.ActivityNavigateHomeScreenBinding;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class NavigateHomeScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private TextView userName , userEmail;
-
+    Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,14 +59,14 @@ public class NavigateHomeScreen extends AppCompatActivity implements NavigationV
                     new HomeFragement()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
-        Bundle bundle = getIntent().getExtras();
+        /*bundle = getIntent().getExtras();
         View headerView = navigationView.getHeaderView(0);
         userName = headerView.findViewById(R.id.header_user_name);
         userEmail = headerView.findViewById(R.id.header_user_email);
         String name = bundle.getString("name");
         String email = bundle.getString("email");
         userName.setText(name);
-        userEmail.setText(email);
+        userEmail.setText(email);*/
     }
 
     @Override
@@ -112,6 +117,20 @@ public class NavigateHomeScreen extends AppCompatActivity implements NavigationV
                         .clear()
                         .commit();
                 */
+
+                String token = bundle.getString("token");
+                Call<LogOutRespond> call = ApiClient.getInstance().getApi().logOut(token);
+                call.enqueue(new Callback<LogOutRespond>() {
+                    @Override
+                    public void onResponse(Call<LogOutRespond> call, Response<LogOutRespond> response) {
+                        Toast.makeText(getApplicationContext(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<LogOutRespond> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
                 startActivity(new Intent(NavigateHomeScreen.this,LogIn.class));                break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);

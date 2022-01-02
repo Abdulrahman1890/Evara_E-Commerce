@@ -3,6 +3,7 @@ package com.example.evara;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,6 +25,7 @@ public class Product extends AppCompatActivity {
                 SingleProductResponse singleProductResponse = response.body();
                 SingleProduct product = singleProductResponse.getProduct();
                 // set data of each product by product.method() to get the value
+                Toast.makeText(getApplicationContext(), product.getTitle(), Toast.LENGTH_SHORT).show();
             }
 
             @Override

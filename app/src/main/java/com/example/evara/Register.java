@@ -69,8 +69,11 @@ public class Register extends AppCompatActivity {
     }
 
     public void add(){
-        User user = new User(userName.getText().toString(), email.getText().toString(), password.getText().toString());
-        Call<RegisterRespond> call = ApiClient.getInstance().getApi().addUser(user.getName(), user.getEmail(), user.getPassword());
+        User user = new User();
+        user.setUsername(userName.getText().toString());
+        user.setEmail(email.getText().toString());
+        user.setPassword(password.getText().toString());
+        Call<RegisterRespond> call = ApiClient.getInstance().getApi().addUser(user.getUserName(), user.getEmail(), user.getPassword());
 
         call.enqueue(new Callback<RegisterRespond>() {
             @Override

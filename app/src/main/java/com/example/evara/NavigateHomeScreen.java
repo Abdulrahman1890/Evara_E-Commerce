@@ -4,8 +4,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -26,9 +29,11 @@ import com.example.evara.databinding.ActivityNavigateHomeScreenBinding;
 
 public class NavigateHomeScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    Toolbar toolbar;
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
+    private Toolbar toolbar;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private TextView userName , userEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +54,14 @@ public class NavigateHomeScreen extends AppCompatActivity implements NavigationV
                     new HomeFragement()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
+        Bundle bundle = getIntent().getExtras();
+        View headerView = navigationView.getHeaderView(0);
+        userName = headerView.findViewById(R.id.header_user_name);
+        userEmail = headerView.findViewById(R.id.header_user_email);
+        String name = bundle.getString("name");
+        String email = bundle.getString("email");
+        userName.setText(name);
+        userEmail.setText(email);
     }
 
     @Override

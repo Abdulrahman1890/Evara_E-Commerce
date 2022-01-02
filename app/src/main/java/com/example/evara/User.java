@@ -1,21 +1,39 @@
 package com.example.evara;
 
-public class User {
-    private String name, email, password, id, token;
+import com.google.gson.annotations.SerializedName;
 
-    public User(String name, String email, String password) {
-        this.name = name;
+public class User {
+
+    private int id;
+    private String username, email, password;
+
+    @SerializedName("Token")
+    String token;
+
+
+    public User() {
+    }
+
+    public User(String username, String email, String password) {
+        this.username = username;
         this.email = email;
         this.password = password;
-
     }
 
-    public String getName() {
-        return name;
+    public User(String username, String email, String password, String token, int id) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        token = token;
+        this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getUserName() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -34,11 +52,11 @@ public class User {
         this.password = password;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -1,9 +1,22 @@
 package com.example.evara;
 
+import com.google.gson.annotations.SerializedName;
+
 public class RegisterRespond {
-    Boolean status;
-    String errNum , msg;
-    User user;
+    private Boolean status;
+    private String errNum , msg;
+    @SerializedName("User")
+    private User user;
+
+    public RegisterRespond() {
+    }
+
+    public RegisterRespond(Boolean status, String errNum, String msg, User user) {
+        this.status = status;
+        this.errNum = errNum;
+        this.msg = msg;
+        this.user = user;
+    }
 
     public Boolean getStatus() {
         return status;

@@ -70,9 +70,16 @@ public class LogIn extends AppCompatActivity {
                 RegisterRespond registerRespond = response.body();
 
                 if(registerRespond.getStatus()){
-                    Toast.makeText(getApplicationContext(), "Successd", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), registerRespond.getMsg() , Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),NavigateHomeScreen.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("name",registerRespond.getUser().getUserName());
+                    bundle.putString("email",registerRespond.getUser().getEmail());
+                    bundle.putInt("id",registerRespond.getUser().getId());
+                    bundle.putString("token",registerRespond.getUser().getToken());
+                    intent.putExtras(bundle);
                     startActivity(intent);
+
 
                 }
                 else{

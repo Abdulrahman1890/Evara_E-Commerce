@@ -92,7 +92,7 @@ public interface RetrofitAPI {
     @POST("Delete_item")
     Call<AddItemToCardRespond> Delete_item(
             @Header("auth-token") String token,
-            @Field("product_id") int id);
+            @Field("id") int id);
     @POST("GetCart")
     Call<GetCartRespond> GetCart(@Header("auth-token") String token);
 

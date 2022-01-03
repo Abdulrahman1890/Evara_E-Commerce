@@ -2,6 +2,7 @@ package com.example.evara;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,10 @@ public class HomeVerticalAdapter extends RecyclerView.Adapter<HomeVerticalAdapte
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(),CatoGridView.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("title",title);
+                bundle.putString("token",singleItem.get(0).getToken());
+                intent.putExtras(bundle);
                 view.getContext().startActivity(intent);
             }
         });

@@ -1,5 +1,6 @@
 package com.example.evara;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,6 +73,7 @@ public class CartFragement extends Fragment {
                     public void onResponse(Call<AddItemToCardRespond> call, Response<AddItemToCardRespond> response) {
                         AddItemToCardRespond addItemToCardRespond = response.body();
                         Toast.makeText(getContext(),response.message(),Toast.LENGTH_SHORT).show();
+                        //view.getContext().startActivity(new Intent(view.getContext(),Payment.class));
                     }
 
                     @Override

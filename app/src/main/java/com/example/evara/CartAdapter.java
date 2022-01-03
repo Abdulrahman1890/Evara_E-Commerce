@@ -6,11 +6,16 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
 
@@ -112,6 +117,18 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             public void onClick(View view) {
                 items.remove(holder.getBindingAdapterPosition());
                 notifyItemRemoved(holder.getBindingAdapterPosition());
+                Call<AddItemToCardRespond> removeItemCall = ApiClient.getInstance().getApi().Delete_item(itemCart.getToken(),itemCart.getId());
+                removeItemCall.enqueue(new Callback<AddItemToCardRespond>() {
+                    @Override
+                    public void onResponse(Call<AddItemToCardRespond> call, Response<AddItemToCardRespond> response) {
+                        Toast.makeText(view.getContext(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<AddItemToCardRespond> call, Throwable t) {
+
+                    }
+                });
             }
         });
     }

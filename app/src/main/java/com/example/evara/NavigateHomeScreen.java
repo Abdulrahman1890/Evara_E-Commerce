@@ -19,6 +19,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -45,7 +46,7 @@ public class NavigateHomeScreen extends AppCompatActivity implements NavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigate_home_screen);
-
+        bundle = getIntent().getExtras();
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -57,18 +58,23 @@ public class NavigateHomeScreen extends AppCompatActivity implements NavigationV
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         if(savedInstanceState == null) {
+            Fragment fragment ;
+            Bundle bundle1 = new Bundle();
+            bundle1.putString("token",bundle.getString("token"));
+            fragment = new HomeFragement();
+            fragment.setArguments(bundle1);
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new HomeFragement()).commit();
+                    fragment).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
-        /*bundle = getIntent().getExtras();
+
         View headerView = navigationView.getHeaderView(0);
         userName = headerView.findViewById(R.id.header_user_name);
         userEmail = headerView.findViewById(R.id.header_user_email);
         String name = bundle.getString("name");
         String email = bundle.getString("email");
         userName.setText(name);
-        userEmail.setText(email);*/
+        userEmail.setText(email);
     }
 
 
@@ -82,26 +88,37 @@ public class NavigateHomeScreen extends AppCompatActivity implements NavigationV
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Fragment fragment ;
+        Bundle bundle1 = new Bundle();
+        bundle1.putString("token",bundle.getString("token"));
         switch (item.getItemId()){
             case R.id.nav_home:
+                fragment = new HomeFragement();
+                fragment.setArguments(bundle1);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new HomeFragement()).commit();
+                        fragment).commit();
                 break;
             case R.id.nav_cart:
+                fragment = new CartFragement();
+                fragment.setArguments(bundle1);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new CartFragement()).commit();
+                        fragment).commit();
                 break;
             case R.id.nav_catogary:
+                fragment = new CatogaryFragment();
+                fragment.setArguments(bundle1);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new CatogaryFragment()).commit();
+                        fragment).commit();
                 break;
             case R.id.nav_about:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new AboutUsFragement()).commit();
                 break;
             case R.id.nav_update:
+                fragment = new UpdateAccountFragement();
+                fragment.setArguments(bundle1);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new UpdateAccountFragement()).commit();
+                        fragment).commit();
                 break;
             case R.id.nav_delete:
                 AlertDialog.Builder m = new AlertDialog.Builder(NavigateHomeScreen.this)
@@ -129,7 +146,7 @@ public class NavigateHomeScreen extends AppCompatActivity implements NavigationV
                         .commit();
                 */
 
-                String token = bundle.getString("token");
+                String token = bundle1.getString("token");
                 Call<LogOutRespond> call = ApiClient.getInstance().getApi().logOut(token);
                 call.enqueue(new Callback<LogOutRespond>() {
                     @Override

@@ -71,6 +71,7 @@ public class HorizontalHomeAdapter extends RecyclerView.Adapter<HorizontalHomeAd
                 Intent intent = new Intent(view.getContext(),Product.class);
                 Bundle bundle = new Bundle();
                 bundle.putInt("id",itemModel.getId());
+                bundle.putString("token",itemModel.getToken());
                 intent.putExtras(bundle);
                 view.getContext().startActivity(intent);
             }

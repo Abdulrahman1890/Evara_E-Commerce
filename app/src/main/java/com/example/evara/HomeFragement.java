@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,11 +22,15 @@ public class HomeFragement extends Fragment {
     private RecyclerView verticalRecyclerView;
     private HomeVerticalAdapter adapter;
     private ArrayList<CategoryModel> arrayList;
-
+    Bundle bundle;
+    String token;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.home_fragement,container,false);
+
+        bundle = this.getArguments();
+        token = bundle.getString("token");
         verticalRecyclerView = view.findViewById(R.id.home_recycle_view);
         verticalRecyclerView.setHasFixedSize(true);
         verticalRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext(),LinearLayoutManager.VERTICAL,false));
@@ -53,7 +58,7 @@ public class HomeFragement extends Fragment {
                 SingleProduct[] products = productRespond.getProducts();
                 ArrayList<ItemModel> itemModelArrayList =new ArrayList<>();
                 for (int i = 0;i < 5;i++){
-                    ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle(),Double.parseDouble(products[i].getPrice()),products[i].getId());
+                    ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle(),Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
                     itemModelArrayList.add(itemModel);
                 }
                 CategoryModel categoryModel = new CategoryModel("Newest Product " ,itemModelArrayList );
@@ -78,7 +83,7 @@ public class HomeFragement extends Fragment {
                 SingleProduct[] products = productRespond.getProducts();
                 ArrayList<ItemModel> itemModelArrayList =new ArrayList<>();
                 for (int i = 0;i < 5;i++){
-                    ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle(),Double.parseDouble(products[i].getPrice()),products[i].getId());
+                    ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle(),Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
                     itemModelArrayList.add(itemModel);
                 }
                 CategoryModel categoryModel = new CategoryModel("Oldest Product " ,itemModelArrayList );
@@ -103,7 +108,7 @@ public class HomeFragement extends Fragment {
                 SingleProduct[] products = productRespond.getProducts();
                 ArrayList<ItemModel> itemModelArrayList =new ArrayList<>();
                 for (int i = 0;i < 5;i++){
-                    ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle(),Double.parseDouble(products[i].getPrice()),products[i].getId());
+                    ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle(),Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
                     itemModelArrayList.add(itemModel);
                 }
                 CategoryModel categoryModel = new CategoryModel("Highest Product " ,itemModelArrayList );
@@ -128,7 +133,7 @@ public class HomeFragement extends Fragment {
                 SingleProduct[] products = productRespond.getProducts();
                 ArrayList<ItemModel> itemModelArrayList =new ArrayList<>();
                 for (int i = 0;i < 5;i++){
-                    ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle(),Double.parseDouble(products[i].getPrice()),products[i].getId());
+                    ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle(),Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
                     itemModelArrayList.add(itemModel);
                 }
                 CategoryModel categoryModel = new CategoryModel("Lowest Product " ,itemModelArrayList );
@@ -153,7 +158,7 @@ public class HomeFragement extends Fragment {
                 SingleProduct[] products = productRespond.getProducts();
                 ArrayList<ItemModel> itemModelArrayList =new ArrayList<>();
                 for (int i = 0;i < 5;i++){
-                    ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle(),Double.parseDouble(products[i].getPrice()),products[i].getId());
+                    ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle(),Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
                     itemModelArrayList.add(itemModel);
                 }
                 CategoryModel categoryModel = new CategoryModel("Most Popular Product " ,itemModelArrayList );

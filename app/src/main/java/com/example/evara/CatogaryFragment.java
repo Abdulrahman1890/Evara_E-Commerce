@@ -31,14 +31,15 @@ public class CatogaryFragment extends Fragment {
     HorizontalHomeAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
     private ArrayList<ItemModel> arrayList;
-
+    private Bundle bundle;
     Spinner catogary , sub;
-
+    String token;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_catogary,container,false);
-
+        bundle = getArguments();
+        token = bundle.getString("token");
         recyclerView = view.findViewById(R.id.catogary_recycle_view);
         layoutManager = new GridLayoutManager(getContext() , 3);
         recyclerView.setLayoutManager(layoutManager);
@@ -137,12 +138,12 @@ public class CatogaryFragment extends Fragment {
     public void dataSet(SingleProduct[] products){
         arrayList = new ArrayList<ItemModel>();
         for (int i = 0 ;i < products.length; i++){
-            //ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle(),Double.parseDouble(products[i].getPrice()));
-            //arrayList.add(itemModel);
+            ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle(),Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
+            arrayList.add(itemModel);
         }
 
         adapter = new HorizontalHomeAdapter(getContext(),arrayList);
         recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        adapter.notifyItemRangeChanged(0, products.length);
     }
 }

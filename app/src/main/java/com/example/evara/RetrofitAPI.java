@@ -79,5 +79,24 @@ public interface RetrofitAPI {
     @FormUrlEncoded
     @POST("GetProduct")
     Call<SingleProductResponse> GetProduct(@Field("id") int id);
+
+    @FormUrlEncoded
+    @POST("AddItemToCard")
+    Call<AddItemToCardRespond> AddItemToCard(
+            @Header("auth-token") String token,
+            @Field("product_id") int id,
+            @Field("quantity") int quantity,
+            @Field("price") int price);
+
+    @FormUrlEncoded
+    @POST("Delete_item")
+    Call<AddItemToCardRespond> Delete_item(
+            @Header("auth-token") String token,
+            @Field("product_id") int id);
+    @POST("GetCart")
+    Call<GetCartRespond> GetCart(@Header("auth-token") String token);
+
+    @POST("Create_order")
+    Call<AddItemToCardRespond> Create_order(@Header("auth-token") String token);
 }
 

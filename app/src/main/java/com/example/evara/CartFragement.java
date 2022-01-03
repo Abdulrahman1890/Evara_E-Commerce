@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,11 +16,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class CartFragement extends Fragment {
     private RecyclerView recyclerView;
     private CartAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<ItemCart> items;
+    Bundle bundle;
+    String token;
+    ImageButton submit;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -26,16 +35,52 @@ public class CartFragement extends Fragment {
         recyclerView = view.findViewById(R.id.cart_recycle_view);
         layoutManager = new LinearLayoutManager(this.getContext());
         recyclerView.setLayoutManager(layoutManager);
+        bundle = getArguments();
+        token = bundle.getString("token");
 
-        items = new ArrayList<ItemCart>();
-        items.add(new ItemCart(R.drawable.cart,"cart car",3000,1));
-        items.add(new ItemCart(R.drawable.cart,"cart car",3000,1));
-        items.add(new ItemCart(R.drawable.cart,"cart car",3000,1));
-        items.add(new ItemCart(R.drawable.cart,"cart car",3000,1));
-        items.add(new ItemCart(R.drawable.cart,"cart car",3000,1));
-        items.add(new ItemCart(R.drawable.cart,"cart car",3000,1));
-        adapter = new CartAdapter(items);
-        recyclerView.setAdapter(adapter);
+        Call<GetCartRespond> getCartRespondCall = ApiClient.getInstance().getApi().GetCart(token);
+        getCartRespondCall.enqueue(new Callback<GetCartRespond>() {
+            @Override
+            public void onResponse(Call<GetCartRespond> call, Response<GetCartRespond> response) {
+                GetCartRespond getCartRespond = response.body();
+                SingleCartItem[] product = getCartRespond.getSingleCartItems();
+                items = new ArrayList<ItemCart>();
+                int size = 0;
+                if(product != null)
+                    size = product.length;
+                for (int i = 0; i < size; i++) {
+                    items.add(new ItemCart(R.drawable.cart,product[i].getTitle(),Double.parseDouble(product[i].getSub_total()),Integer.parseInt(product[i].getQuantity()),product[i].getId(),token));
+                }
+                adapter = new CartAdapter(items);
+                recyclerView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<GetCartRespond> call, Throwable t) {
+                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        submit = view.findViewById(R.id.btn_submit_order);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Call<AddItemToCardRespond> submitCall = ApiClient.getInstance().getApi().Create_order(token);
+                submitCall.enqueue(new Callback<AddItemToCardRespond>() {
+                    @Override
+                    public void onResponse(Call<AddItemToCardRespond> call, Response<AddItemToCardRespond> response) {
+                        AddItemToCardRespond addItemToCardRespond = response.body();
+                        Toast.makeText(getContext(),response.message(),Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<AddItemToCardRespond> call, Throwable t) {
+
+                    }
+                });
+            }
+        });
 
         return view;
     }

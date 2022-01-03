@@ -2,6 +2,7 @@ package com.example.evara;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -45,8 +46,8 @@ public class Register extends AppCompatActivity {
                 if (userName.getText().toString().isEmpty()) {
                     userName.setError("Username is empty");
                 }
-                else if (email.getText().toString().isEmpty()) {
-                    email.setError("Email is empty");
+                else if (email.getText().toString().isEmpty() || !(email.getText().toString().contains("@"))) {
+                    email.setError("Email is invalid");
                 }
                 else if (password.getText().toString().isEmpty()) {
                     password.setError("Password is empty");
@@ -69,6 +70,9 @@ public class Register extends AppCompatActivity {
     }
 
     public void add(){
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setTitle("Uploading please wait");
+        pd.show();
         User user = new User();
         user.setUsername(userName.getText().toString());
         user.setEmail(email.getText().toString());
@@ -84,6 +88,7 @@ public class Register extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<RegisterRespond> call, Throwable t) {
+                pd.dismiss();
                 Toast.makeText(getApplicationContext(), "Failed" + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });

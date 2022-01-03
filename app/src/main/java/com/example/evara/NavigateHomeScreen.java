@@ -4,9 +4,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -39,6 +39,8 @@ public class NavigateHomeScreen extends AppCompatActivity implements NavigationV
     private NavigationView navigationView;
     private TextView userName , userEmail;
     Bundle bundle;
+    private Menu searchbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +70,15 @@ public class NavigateHomeScreen extends AppCompatActivity implements NavigationV
         userName.setText(name);
         userEmail.setText(email);*/
     }
+
+
+
+    public void openSearch(){
+            startActivity(new Intent(NavigateHomeScreen.this,SearchBar.class));
+    }
+
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

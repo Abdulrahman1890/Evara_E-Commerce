@@ -1,12 +1,13 @@
 package com.example.evara;
 
 public class ItemCart {
-    private int image , quantity , id;
+    private int quantity , id;
     private String header , token;
     private double price;
+    String image;
 
 
-    public ItemCart(int image, String header, double price, int quantity,int id,String token ) {
+    public ItemCart(String image, String header, double price, int quantity,int id,String token ) {
         this.image = image;
         this.header = header;
         this.price = price;
@@ -31,11 +32,11 @@ public class ItemCart {
         this.token = token;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

@@ -1,11 +1,14 @@
 package com.example.evara;
 
+import com.google.gson.annotations.SerializedName;
+
 public class SingleCartItem {
     private int id;
     private String product_id , user_id , quantity ,Sub_total ,sub_category_id,
             category_id ,title,short_description,long_description,price,
-            product_imagesID,old_price,discount,username,email,password;
-
+            old_price,discount,username,email,password;
+    @SerializedName("path")
+    String product_imagesID;
 
     public int getId() {
         return id;

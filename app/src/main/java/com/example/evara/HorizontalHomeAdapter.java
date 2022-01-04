@@ -8,9 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -62,9 +65,12 @@ public class HorizontalHomeAdapter extends RecyclerView.Adapter<HorizontalHomeAd
     @Override
     public void onBindViewHolder(@NonNull SimpleItemViewHolder holder, int position) {
         ItemModel itemModel = arrayList.get(position);
-        holder.getImg().setImageResource(itemModel.getImg());
+        Glide.with(holder.itemView.getContext())
+                .load( "http://evara-shop.ahmed-projects.me"+ itemModel.getImg())
+                .placeholder(R.drawable.cart)
+                .into(holder.getImg());
         holder.getName().setText(itemModel.getName());
-        holder.getPrice().setText("$ " + itemModel.getPrice());
+        holder.getPrice().setText("LE " + itemModel.getPrice());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -138,7 +138,7 @@ public class CatogaryFragment extends Fragment {
     public void dataSet(SingleProduct[] products){
         arrayList = new ArrayList<ItemModel>();
         for (int i = 0 ;i < products.length; i++){
-            ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle(),Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
+            ItemModel itemModel = new ItemModel(products[i].getPath(),products[i].getTitle(),Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
             arrayList.add(itemModel);
         }
 

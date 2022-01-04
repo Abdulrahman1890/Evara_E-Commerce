@@ -3,6 +3,7 @@ package com.example.evara;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -84,6 +85,7 @@ public class Register extends AppCompatActivity {
             public void onResponse(Call<RegisterRespond> call, Response<RegisterRespond> response) {
 
                 Toast.makeText(getApplicationContext(), "Successed " + response.body().getStatus(), Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(),LogIn.class));
             }
 
             @Override

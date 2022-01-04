@@ -11,6 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -89,9 +91,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     @Override
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         ItemCart itemCart = items.get(position);
-        holder.getImg().setImageResource(itemCart.getImage());
+
+        Glide.with(holder.itemView.getContext())
+                .load( "http://evara-shop.ahmed-projects.me"+ itemCart.getImage())
+                .placeholder(R.drawable.cart)
+                .into(holder.getImg());
         holder.getHeader().setText(itemCart.getHeader());
-        holder.getPrice().setText("$ " + itemCart.getPrice());
+        holder.getPrice().setText("LE " + itemCart.getPrice());
         holder.getQuantity().setText(itemCart.getQuantity() + "");
 
         holder.getInc().setOnClickListener(new View.OnClickListener() {

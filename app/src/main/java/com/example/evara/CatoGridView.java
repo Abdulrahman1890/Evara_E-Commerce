@@ -63,7 +63,7 @@ public class CatoGridView extends AppCompatActivity {
                 SingleProduct[] products = productRespond.getProducts();
                 ArrayList<ItemModel> itemModelArrayList= new ArrayList<ItemModel>();
                 for (int i = 0;i < products.length; i++){
-                    ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle() ,Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
+                    ItemModel itemModel = new ItemModel(products[i].getPath(),products[i].getTitle() ,Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
                     itemModelArrayList.add(itemModel);
                 }
 
@@ -89,7 +89,7 @@ public class CatoGridView extends AppCompatActivity {
                 SingleProduct[] products = productRespond.getProducts();
                 ArrayList<ItemModel> itemModelArrayList =new ArrayList<>();
                 for (int i = 0;i < products.length;i++){
-                    ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle() ,Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
+                    ItemModel itemModel = new ItemModel(products[i].getPath(),products[i].getTitle() ,Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
                     itemModelArrayList.add(itemModel);
                 }
                 adapter = new HorizontalHomeAdapter(getApplicationContext(),itemModelArrayList);
@@ -114,7 +114,7 @@ public class CatoGridView extends AppCompatActivity {
                 SingleProduct[] products = productRespond.getProducts();
                 ArrayList<ItemModel> itemModelArrayList =new ArrayList<>();
                 for (int i = 0;i < products.length;i++){
-                    ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle() ,Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
+                    ItemModel itemModel = new ItemModel(products[i].getPath(),products[i].getTitle() ,Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
                     itemModelArrayList.add(itemModel);
                 }
                 adapter = new HorizontalHomeAdapter(getApplicationContext(),itemModelArrayList);
@@ -139,7 +139,7 @@ public class CatoGridView extends AppCompatActivity {
                 SingleProduct[] products = productRespond.getProducts();
                 ArrayList<ItemModel> itemModelArrayList =new ArrayList<>();
                 for (int i = 0;i < products.length;i++){
-                    ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle(),Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
+                    ItemModel itemModel = new ItemModel(products[i].getPath(),products[i].getTitle(),Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
                     itemModelArrayList.add(itemModel);
                 }
                 adapter = new HorizontalHomeAdapter(getApplicationContext(),itemModelArrayList);
@@ -164,7 +164,7 @@ public class CatoGridView extends AppCompatActivity {
                 SingleProduct[] products = productRespond.getProducts();
                 ArrayList<ItemModel> itemModelArrayList =new ArrayList<>();
                 for (int i = 0;i < products.length;i++){
-                    ItemModel itemModel = new ItemModel(R.drawable.cart,products[i].getTitle(),Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
+                    ItemModel itemModel = new ItemModel(products[i].getPath(),products[i].getTitle(),Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
                     itemModelArrayList.add(itemModel);
                 }
                 adapter = new HorizontalHomeAdapter(getApplicationContext(),itemModelArrayList);

@@ -20,8 +20,9 @@
             android:orientation="vertical" >
 
             <ImageView
+                android:id="@+id/product_img"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="400dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/clothes"
                 />

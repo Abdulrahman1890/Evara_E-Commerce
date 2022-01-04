@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,6 +35,11 @@ public class Product extends AppCompatActivity {
                 product = singleProductResponse.getProduct();
                 // set data of each product by product[0].method() to get the value
                 Toast.makeText(getApplicationContext(), product[0].getTitle(), Toast.LENGTH_SHORT).show();
+                ImageView img = findViewById(R.id.product_img);
+                Glide.with(getApplicationContext())
+                        .load( "http://evara-shop.ahmed-projects.me"+ product[0].getPath())
+                        .placeholder(R.drawable.cart)
+                        .into(img);
             }
 
             @Override

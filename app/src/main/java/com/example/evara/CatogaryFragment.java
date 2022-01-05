@@ -65,6 +65,7 @@ public class CatogaryFragment extends Fragment {
         });
 
         sub = view.findViewById(R.id.spinner_sub_catogary);
+        sub.setVisibility(View.GONE);
 
         Call<SubCategoryResponds> call2 = ApiClient.getInstance().getApi().GetSubCategories();
         call2.enqueue(new Callback<SubCategoryResponds>() {

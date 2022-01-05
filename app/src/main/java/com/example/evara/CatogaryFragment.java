@@ -47,7 +47,7 @@ public class CatogaryFragment extends Fragment {
 
 
         catogary = view.findViewById(R.id.spinner_catogary);
-        int categoryid;
+
 
         Call<GetCategoryResponds> call = ApiClient.getInstance().getApi().GetCategories();
         call.enqueue(new Callback<GetCategoryResponds>() {
@@ -68,43 +68,28 @@ public class CatogaryFragment extends Fragment {
         sub = view.findViewById(R.id.spinner_sub_catogary);
         sub.setVisibility(View.GONE);
 
-        Call<SubCategoryResponds> call2 = ApiClient.getInstance().getApi().GetSubCategories();
-        call2.enqueue(new Callback<SubCategoryResponds>() {
-            @Override
-            public void onResponse(Call<SubCategoryResponds> call, Response<SubCategoryResponds> response) {
-                SubCategoryResponds subCategoryResponds = response.body();
-
-                ArrayAdapter<SubCategories> adapter = new ArrayAdapter<>(getContext(),R.layout.support_simple_spinner_dropdown_item,subCategoryResponds.getSubCategories());
-                sub.setAdapter(adapter);
-            }
-
-            @Override
-            public void onFailure(Call<SubCategoryResponds> call, Throwable t) {
-
-            }
-        });
-
-
-
-
         catogary.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 All_Categories category = (All_Categories) catogary.getSelectedItem();
-                Call<ProductByCategoryRespond> call1 = ApiClient.getInstance().getApi().GetProductByCategory(category.getId());
-
-                call1.enqueue(new Callback<ProductByCategoryRespond>() {
+                Call<GetSubcategoriesByIdRespond> getSubcategoriesByIdRespondCall = ApiClient.getInstance().getApi().getSubcategoriesByIdRespondCall(category.getId());
+                getSubcategoriesByIdRespondCall.enqueue(new Callback<GetSubcategoriesByIdRespond>() {
                     @Override
-                    public void onResponse(Call<ProductByCategoryRespond> call, Response<ProductByCategoryRespond> response) {
-                        ProductByCategoryRespond productByCategoryRespond = response.body();
-                        dataSet(productByCategoryRespond.getProducts());
-                     }
+                    public void onResponse(Call<GetSubcategoriesByIdRespond> call, Response<GetSubcategoriesByIdRespond> response) {
+                        sub.setVisibility(View.VISIBLE);
+                        GetSubcategoriesByIdRespond getSubcategoriesByIdRespond = response.body();
+                        SubCategory[] subCategories = getSubcategoriesByIdRespond.getSubCategory();
+                        ArrayAdapter<SubCategory> adapter = new ArrayAdapter<>(getContext(),R.layout.support_simple_spinner_dropdown_item,subCategories);
+                        sub.setAdapter(adapter);
+
+                    }
 
                     @Override
-                    public void onFailure(Call<ProductByCategoryRespond> call, Throwable t) {
+                    public void onFailure(Call<GetSubcategoriesByIdRespond> call, Throwable t) {
 
                     }
                 });
+
             }
 
             @Override
@@ -115,19 +100,21 @@ public class CatogaryFragment extends Fragment {
         sub.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                SubCategories subProduct = (SubCategories) sub.getSelectedItem();
+                SubCategory subProduct = (SubCategory) sub.getSelectedItem();
                 Call<ProductByCategoryRespond> callSubCateProduct = ApiClient.getInstance().getApi().GetProductBySubCategory(subProduct.getId());
+                Toast.makeText(getContext(), subProduct.getId() + "", Toast.LENGTH_SHORT).show();
 
                 callSubCateProduct.enqueue(new Callback<ProductByCategoryRespond>() {
                     @Override
                     public void onResponse(Call<ProductByCategoryRespond> call, Response<ProductByCategoryRespond> response) {
                         ProductByCategoryRespond productByCategoryRespond = response.body();
                         dataSet(productByCategoryRespond.getProducts());
+
                     }
 
                     @Override
                     public void onFailure(Call<ProductByCategoryRespond> call, Throwable t) {
-
+                        Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }

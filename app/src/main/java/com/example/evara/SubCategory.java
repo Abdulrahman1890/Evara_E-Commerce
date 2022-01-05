@@ -23,4 +23,9 @@ public class SubCategory {
     public int getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return sub_category_name;
+    }
 }

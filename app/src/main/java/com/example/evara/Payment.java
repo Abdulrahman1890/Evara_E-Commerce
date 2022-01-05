@@ -16,6 +16,8 @@ public class Payment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
+        getSupportActionBar().hide();
+
         map = findViewById(R.id.map_check);
 
 

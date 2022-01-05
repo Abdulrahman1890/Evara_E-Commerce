@@ -96,4 +96,7 @@ public class Register extends AppCompatActivity {
         });
     }
 
+    public void login_regist(View view) {
+        startActivity(new Intent(Register.this,LogIn.class));
+    }
 }

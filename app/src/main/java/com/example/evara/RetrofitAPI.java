@@ -53,6 +53,12 @@ public interface RetrofitAPI {
     );
 
     @FormUrlEncoded
+    @POST("GtSubcategoriesById")
+    Call<GetSubcategoriesByIdRespond> getSubcategoriesByIdRespondCall(
+            @Field("id") int id
+    );
+
+    @FormUrlEncoded
     @POST("GetProductBySubCategory")
     Call<ProductByCategoryRespond> GetProductBySubCategory(
             @Field("id") int id
@@ -73,8 +79,9 @@ public interface RetrofitAPI {
     @POST("GetPopularProducts")
     Call<ProductRespond> GetPopularProducts();
 
-    @POST("GetPopularProducts")
-    Call<ProductRespond> GetResultSearch();
+    @FormUrlEncoded
+    @POST("GetResultSearch")
+    Call<ProductRespond> GetResultSearch(@Field("search") String search);
 
     @FormUrlEncoded
     @POST("GetProduct")
@@ -86,7 +93,7 @@ public interface RetrofitAPI {
             @Header("auth-token") String token,
             @Field("product_id") int id,
             @Field("quantity") int quantity,
-            @Field("price") int price);
+            @Field("price") double price);
 
     @FormUrlEncoded
     @POST("Delete_item")

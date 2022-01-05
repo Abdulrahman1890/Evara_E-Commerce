@@ -47,6 +47,7 @@ public class CatogaryFragment extends Fragment {
 
 
         catogary = view.findViewById(R.id.spinner_catogary);
+        int categoryid;
 
         Call<GetCategoryResponds> call = ApiClient.getInstance().getApi().GetCategories();
         call.enqueue(new Callback<GetCategoryResponds>() {
@@ -83,6 +84,9 @@ public class CatogaryFragment extends Fragment {
             }
         });
 
+
+
+
         catogary.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -94,7 +98,7 @@ public class CatogaryFragment extends Fragment {
                     public void onResponse(Call<ProductByCategoryRespond> call, Response<ProductByCategoryRespond> response) {
                         ProductByCategoryRespond productByCategoryRespond = response.body();
                         dataSet(productByCategoryRespond.getProducts());
-                    }
+                     }
 
                     @Override
                     public void onFailure(Call<ProductByCategoryRespond> call, Throwable t) {

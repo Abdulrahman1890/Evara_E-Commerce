@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Evara"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Payment"
+            android:exported="false"/>
+        <activity
             android:name=".SearchBar"
             android:exported="false" />
         <activity

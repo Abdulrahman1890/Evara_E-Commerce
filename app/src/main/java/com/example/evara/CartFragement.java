@@ -67,20 +67,7 @@ public class CartFragement extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Call<AddItemToCardRespond> submitCall = ApiClient.getInstance().getApi().Create_order(token);
-                submitCall.enqueue(new Callback<AddItemToCardRespond>() {
-                    @Override
-                    public void onResponse(Call<AddItemToCardRespond> call, Response<AddItemToCardRespond> response) {
-                        AddItemToCardRespond addItemToCardRespond = response.body();
-                        Toast.makeText(getContext(),response.message(),Toast.LENGTH_SHORT).show();
-                        //view.getContext().startActivity(new Intent(view.getContext(),Payment.class));
-                    }
-
-                    @Override
-                    public void onFailure(Call<AddItemToCardRespond> call, Throwable t) {
-
-                    }
-                });
+             startActivity(new Intent(getContext(),Payment.class));
             }
         });
 

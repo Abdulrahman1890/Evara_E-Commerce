@@ -80,11 +80,28 @@ public class NavigateHomeScreen extends AppCompatActivity implements NavigationV
 
 
     public void openSearch(){
-            startActivity(new Intent(NavigateHomeScreen.this,SearchBar.class));
+            Intent intent = new Intent(NavigateHomeScreen.this,SearchBar.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
+
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.searchbar, menu);
+        return true;
+    }
 
-
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId()==R.id.searchbar_icon){
+            openSearch();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

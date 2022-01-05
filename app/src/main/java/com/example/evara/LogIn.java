@@ -102,4 +102,7 @@ public class LogIn extends AppCompatActivity {
         });
     }
 
+    public void signup(View view) {
+        startActivity(new Intent(LogIn.this,Register.class));
+    }
 }

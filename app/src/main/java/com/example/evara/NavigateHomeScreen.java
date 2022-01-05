@@ -130,10 +130,23 @@ public class NavigateHomeScreen extends AppCompatActivity implements NavigationV
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 
-                                //نربطها بالapi عشان نمسح الداتا
+                                Call<DeleteAccountResponse> deleteAccountResponseCall = ApiClient.getInstance().getApi().deleteAccount(bundle.getString("token"));
+                                deleteAccountResponseCall.enqueue(new Callback<DeleteAccountResponse>() {
+                                    @Override
+                                    public void onResponse(Call<DeleteAccountResponse> call, Response<DeleteAccountResponse> response) {
+                                        Toast.makeText(getApplicationContext(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
+                                        if(response.body().isStatus()) {
+                                            startActivity(new Intent(NavigateHomeScreen.this, LogIn.class));
+                                            finish();
+                                        }
+                                    }
 
-                                startActivity(new Intent(NavigateHomeScreen.this,LogIn.class));
-                                finish();
+                                    @Override
+                                    public void onFailure(Call<DeleteAccountResponse> call, Throwable t) {
+                                            Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
                             }
                         });
                 m.create().show();

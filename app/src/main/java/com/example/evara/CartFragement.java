@@ -50,7 +50,7 @@ public class CartFragement extends Fragment {
                 if(product != null)
                     size = product.length;
                 for (int i = 0; i < size; i++) {
-                    items.add(new ItemCart(product[i].getProduct_imagesID(),product[i].getTitle(),Double.parseDouble(product[i].getSub_total()),Integer.parseInt(product[i].getQuantity()),product[i].getId(),token));
+                    items.add(new ItemCart(product[i].getPath(),product[i].getTitle(),Double.parseDouble(product[i].getPrice()),Integer.parseInt(product[i].getQuantity()),product[i].getId(),token));
                 }
                 adapter = new CartAdapter(items);
                 recyclerView.setAdapter(adapter);

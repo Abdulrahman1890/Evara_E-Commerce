@@ -121,13 +121,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.getRemove().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                items.remove(holder.getBindingAdapterPosition());
-                notifyItemRemoved(holder.getBindingAdapterPosition());
                 Call<AddItemToCardRespond> removeItemCall = ApiClient.getInstance().getApi().Delete_item(itemCart.getToken(),itemCart.getId());
                 removeItemCall.enqueue(new Callback<AddItemToCardRespond>() {
                     @Override
                     public void onResponse(Call<AddItemToCardRespond> call, Response<AddItemToCardRespond> response) {
                         Toast.makeText(view.getContext(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
+                        if(response.body().isStatus()) {
+                            items.remove(holder.getBindingAdapterPosition());
+                            notifyItemRemoved(holder.getBindingAdapterPosition());
+                        }
                     }
 
                     @Override

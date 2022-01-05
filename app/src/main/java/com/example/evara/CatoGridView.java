@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -18,7 +19,8 @@ public class CatoGridView extends AppCompatActivity {
     private ArrayList<ItemModel> arrayList;
     private RecyclerView.LayoutManager layoutManager;
     private Bundle bundle;
-    String title , token;
+    private String title , token;
+    private TextView textView_title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,11 +33,8 @@ public class CatoGridView extends AppCompatActivity {
         title = bundle.getString("title");
         token = bundle.getString("token");
 
-        /*ArrayList<ItemModel> itemModelArrayList =new ArrayList<>();
-        for (int i = 0;i < 12;i++){
-            ItemModel itemModel = new ItemModel(R.drawable.cart,title ,3000,1,token);
-            itemModelArrayList.add(itemModel);
-        }*/
+        textView_title = findViewById(R.id.grid_view_title);
+        textView_title.setText(title);
 
         if(title.equals("Newest Product "))
             newProduct();
@@ -46,11 +45,10 @@ public class CatoGridView extends AppCompatActivity {
         if(title.equals("Lowest Product "))
             lowProduct();
         if(title.equals("Most Popular Product "))
-            newProduct();
+            mostProduct();
 
 
-        /*adapter = new HorizontalHomeAdapter(getApplicationContext(),itemModelArrayList);
-        recyclerView.setAdapter(adapter);*/
+
 
     }
     public void newProduct(){

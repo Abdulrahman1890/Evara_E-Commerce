@@ -84,7 +84,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onResponse(Call<RegisterRespond> call, Response<RegisterRespond> response) {
 
-                Toast.makeText(getApplicationContext(), "Successed " + response.body().getStatus(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),  response.body().getMsg(), Toast.LENGTH_LONG).show();
                 startActivity(new Intent(getApplicationContext(),LogIn.class));
             }
 

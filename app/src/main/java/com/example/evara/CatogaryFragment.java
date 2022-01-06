@@ -102,8 +102,6 @@ public class CatogaryFragment extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 SubCategory subProduct = (SubCategory) sub.getSelectedItem();
                 Call<ProductByCategoryRespond> callSubCateProduct = ApiClient.getInstance().getApi().GetProductBySubCategory(subProduct.getId());
-                Toast.makeText(getContext(), subProduct.getId() + "", Toast.LENGTH_SHORT).show();
-
                 callSubCateProduct.enqueue(new Callback<ProductByCategoryRespond>() {
                     @Override
                     public void onResponse(Call<ProductByCategoryRespond> call, Response<ProductByCategoryRespond> response) {

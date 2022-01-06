@@ -2,8 +2,10 @@ package com.example.evara;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -153,6 +155,8 @@ public class NavigateHomeScreen extends AppCompatActivity implements NavigationV
                                     public void onResponse(Call<DeleteAccountResponse> call, Response<DeleteAccountResponse> response) {
                                         Toast.makeText(getApplicationContext(), response.body().getMsg(), Toast.LENGTH_SHORT).show();
                                         if(response.body().isStatus()) {
+                                            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                            sharedPreferences.edit().clear().commit();
                                             startActivity(new Intent(NavigateHomeScreen.this, LogIn.class));
                                             finish();
                                         }
@@ -169,12 +173,8 @@ public class NavigateHomeScreen extends AppCompatActivity implements NavigationV
                 m.create().show();
                 break;
             case R.id.nav_logout:
-                // لازم نعمل هنا الshared preference
-              /*  getSharedPreferences("rememberstu",MODE_PRIVATE)
-                        .edit()
-                        .clear()
-                        .commit();
-                */
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+                sharedPreferences.edit().clear().commit();
 
                 String token = bundle1.getString("token");
                 Call<LogOutRespond> call = ApiClient.getInstance().getApi().logOut(token);

@@ -32,7 +32,7 @@ public class GetStarted extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(GetStarted.this,Register.class);
                 startActivity(intent);
-
+                finish();
             }
         });
 
@@ -41,6 +41,7 @@ public class GetStarted extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(GetStarted.this,LogIn.class);
                 startActivity(intent);
+                finish();
             }
         });
 

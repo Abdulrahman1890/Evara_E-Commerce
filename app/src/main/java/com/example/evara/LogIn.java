@@ -3,9 +3,12 @@ package com.example.evara;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +26,8 @@ public class LogIn extends AppCompatActivity {
     private EditText email;
     private Button login;
     private TextView forgetpassword;
+    private SharedPreferences sharedPreferences;
+    CheckBox keepMeIn;
 
 
     @Override
@@ -36,7 +41,8 @@ public class LogIn extends AppCompatActivity {
         password = findViewById(R.id.login_edt_password);
         login = findViewById(R.id.login_btn);
         forgetpassword = findViewById(R.id.forgetpass);
-
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        keepMeIn = findViewById(R.id.check_sign);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,12 +79,32 @@ public class LogIn extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), registerRespond.getMsg() , Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),NavigateHomeScreen.class);
                     Bundle bundle = new Bundle();
-                    bundle.putString("name",registerRespond.getUser().getUserName());
-                    bundle.putString("email",registerRespond.getUser().getEmail());
-                    bundle.putInt("id",registerRespond.getUser().getId());
-                    bundle.putString("token",registerRespond.getUser().getToken());
+                    if(keepMeIn.isChecked()) {
+                        //SharedPrefernce
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("name", registerRespond.getUser().getUserName());
+                        editor.putString("email", registerRespond.getUser().getEmail());
+                        editor.putInt("id", registerRespond.getUser().getId());
+                        editor.putString("token", registerRespond.getUser().getToken());
+                        editor.commit();
+
+
+                        bundle.putString("name", sharedPreferences.getString("name", ""));
+                        bundle.putString("email", sharedPreferences.getString("email", ""));
+                        bundle.putInt("id", sharedPreferences.getInt("id", 0));
+                        bundle.putString("token", sharedPreferences.getString("token", ""));
+
+                    }else{
+
+                        bundle.putString("name", registerRespond.getUser().getUserName());
+                        bundle.putString("email", registerRespond.getUser().getEmail());
+                        bundle.putInt("id", registerRespond.getUser().getId());
+                        bundle.putString("token", registerRespond.getUser().getToken());
+
+                    }
                     intent.putExtras(bundle);
                     startActivity(intent);
+                    finish();
 
 
                 }
@@ -104,5 +130,6 @@ public class LogIn extends AppCompatActivity {
 
     public void signup(View view) {
         startActivity(new Intent(LogIn.this,Register.class));
+        finish();
     }
 }

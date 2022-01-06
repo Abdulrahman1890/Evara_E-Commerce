@@ -86,6 +86,7 @@ public class Register extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(),  response.body().getMsg(), Toast.LENGTH_LONG).show();
                 startActivity(new Intent(getApplicationContext(),LogIn.class));
+                finish();
             }
 
             @Override
@@ -98,5 +99,6 @@ public class Register extends AppCompatActivity {
 
     public void login_regist(View view) {
         startActivity(new Intent(Register.this,LogIn.class));
+        finish();
     }
 }

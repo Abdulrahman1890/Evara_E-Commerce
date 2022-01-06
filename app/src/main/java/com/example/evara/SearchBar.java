@@ -77,14 +77,16 @@ public class SearchBar extends AppCompatActivity {
                 ProductRespond productRespond = response.body();
                 SingleProduct[] products = productRespond.getProducts();
                 ArrayList<ItemModel> itemModelArrayList= new ArrayList<ItemModel>();
-                for (int i = 0;i < products.length; i++){
-                    ItemModel itemModel = new ItemModel(products[i].getPath(),products[i].getTitle() ,Double.parseDouble(products[i].getPrice()),products[i].getId(),token);
-                    itemModelArrayList.add(itemModel);
+                if(products != null) {
+                    for (int i = 0; i < products.length; i++) {
+                        ItemModel itemModel = new ItemModel(products[i].getPath(), products[i].getTitle(), Double.parseDouble(products[i].getPrice()), products[i].getId(), token);
+                        itemModelArrayList.add(itemModel);
+                    }
                 }
-
                 adapter = new HorizontalHomeAdapter(getApplicationContext(),itemModelArrayList);
                 search_recycle_view.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
+
             }
 
             @Override

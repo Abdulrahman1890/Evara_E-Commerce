@@ -58,7 +58,7 @@ public class Product extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 num = Integer.parseInt(quantity.getText().toString())-1;
-                if(num>1){
+                if(num >= 1){
                     quantity.setText(num + "");
                 }
             }
